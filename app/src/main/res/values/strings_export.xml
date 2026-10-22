@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="export_title">Make a document</string>
+    <string name="export_step_style">Choose a style</string>
+    <string name="export_plain">Plain page</string>
+    <string name="export_plain_sub">Your text, neatly on a page</string>
+    <string name="export_letter">Letter or application</string>
+    <string name="export_letter_sub">Adds date, “To”, subject and your name</string>
+    <string name="export_list">List</string>
+    <string name="export_list_sub">Each line becomes a point (good for shopping or medicines)</string>
+    <string name="export_step_letter">Letter details</string>
+    <string name="export_to">To (who it is for)</string>
+    <string name="export_to_hint">e.g. The Branch Manager, State Bank of India, Dehradun</string>
+    <string name="export_subject">Subject</string>
+    <string name="export_subject_hint">e.g. Request to update mobile number</string>
+    <string name="export_signer">Your name</string>
+    <string name="export_speak_field">Speak: %1$s</string>
+    <string name="export_step_type">Choose the file type</string>
+    <string name="export_pdf">PDF document (recommended)</string>
+    <string name="export_pdf_sub">Opens the same on every phone and computer</string>
+    <string name="export_word">Word file</string>
+    <string name="export_word_sub">Can be changed later on a computer</string>
+    <string name="export_step_check">Check how it looks</string>
+    <string name="export_preview">Preview</string>
+    <string name="export_selected">Selected</string>
+    <string name="export_save">Save the document</string>
+    <string name="export_saving">Making your document… please wait.</string>
+    <string name="export_saved_title">Done! The document is saved.</string>
+    <string name="export_saved_message">It is in “My Documents” with the name:\n%1$s</string>
+    <string name="export_open">Open it</string>
+    <string name="export_done">Done</string>
+</resources>

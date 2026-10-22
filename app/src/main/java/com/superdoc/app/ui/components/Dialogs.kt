@@ -1,5 +1,6 @@
 package com.superdoc.app.ui.components
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,11 +27,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.superdoc.app.R
 import com.superdoc.app.ui.theme.SeniorColors
@@ -124,7 +125,17 @@ fun TextInputDialog(
 /** Blocks the screen with a clear "please wait" message during slow work. */
 @Composable
 fun BusyOverlay(message: String, progress: Float? = null) {
-    Dialog(onDismissRequest = {}, properties = DialogProperties(dismissOnBackPress = false, dismissOnClickOutside = false)) {
+    // Drawn inside the screen rather than as a Dialog window: a window shown for only a moment
+    // can trip the system's focus watchdog ("app isn't responding") on slow phones.
+    BackHandler {}
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(Color.Black.copy(alpha = 0.5f))
+            .pointerInput(Unit) { awaitPointerEventScope { while (true) awaitPointerEvent().changes.forEach { it.consume() } } }
+            .padding(24.dp),
+        contentAlignment = Alignment.Center,
+    ) {
         Box(
             Modifier
                 .fillMaxWidth()

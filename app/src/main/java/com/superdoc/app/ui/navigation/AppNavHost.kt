@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.superdoc.app.data.ItemEntity
 import com.superdoc.app.data.ItemType
+import com.superdoc.app.ui.export.ExportScreen
 import com.superdoc.app.ui.home.HomeActions
 import com.superdoc.app.ui.home.HomeScreen
 import com.superdoc.app.ui.language.LanguageScreen
@@ -86,6 +87,13 @@ fun AppNavHost(startAtLanguage: Boolean, nav: NavHostController = rememberNavCon
                     split = { nav.navigate(Routes.split(vm.id)) },
                     deleted = back,
                 ),
+            )
+        }
+        composable(Routes.EXPORT) {
+            ExportScreen(
+                vm = hiltViewModel(),
+                onBack = back, onHome = home, onHelp = { help("export") },
+                onOpen = { item -> nav.navigate(Routes.viewer(item.id)) { popUpTo(Routes.EXPORT) { inclusive = true } } },
             )
         }
         composable(Routes.SETTINGS) {

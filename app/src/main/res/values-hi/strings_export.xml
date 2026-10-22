@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="export_title">दस्तावेज़ बनाएँ</string>
+    <string name="export_step_style">तरीका चुनें</string>
+    <string name="export_plain">सादा पेज</string>
+    <string name="export_plain_sub">आपका लेख, साफ़-सुथरे पेज पर</string>
+    <string name="export_letter">पत्र या आवेदन</string>
+    <string name="export_letter_sub">तारीख़, “सेवा में”, विषय और आपका नाम जुड़ जाता है</string>
+    <string name="export_list">सूची</string>
+    <string name="export_list_sub">हर लाइन एक बिंदु बनती है (सामान या दवाइयों के लिए अच्छा)</string>
+    <string name="export_step_letter">पत्र की जानकारी</string>
+    <string name="export_to">सेवा में (किसके लिए है)</string>
+    <string name="export_to_hint">जैसे: शाखा प्रबंधक, भारतीय स्टेट बैंक, देहरादून</string>
+    <string name="export_subject">विषय</string>
+    <string name="export_subject_hint">जैसे: मोबाइल नंबर बदलने हेतु</string>
+    <string name="export_signer">आपका नाम</string>
+    <string name="export_speak_field">बोलें: %1$s</string>
+    <string name="export_step_type">फ़ाइल का प्रकार चुनें</string>
+    <string name="export_pdf">PDF दस्तावेज़ (सबसे अच्छा)</string>
+    <string name="export_pdf_sub">हर फ़ोन और कंप्यूटर पर एक जैसा खुलता है</string>
+    <string name="export_word">वर्ड फ़ाइल</string>
+    <string name="export_word_sub">बाद में कंप्यूटर पर बदली जा सकती है</string>
+    <string name="export_step_check">देखें कैसा दिखेगा</string>
+    <string name="export_preview">झलक</string>
+    <string name="export_selected">चुना गया</string>
+    <string name="export_save">दस्तावेज़ सेव करें</string>
+    <string name="export_saving">आपका दस्तावेज़ बन रहा है… कृपया रुकें।</string>
+    <string name="export_saved_title">हो गया! दस्तावेज़ सेव हो गया।</string>
+    <string name="export_saved_message">यह “मेरे दस्तावेज़” में इस नाम से है:\n%1$s</string>
+    <string name="export_open">इसे खोलें</string>
+    <string name="export_done">हो गया</string>
+</resources>
