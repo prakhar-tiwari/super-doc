@@ -11,3 +11,4 @@ build/
 *.keystore
 *.p12
 *.pfx
+__pycache__/
