@@ -1,6 +1,8 @@
 package com.superdoc.app.ui.library
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -86,6 +88,7 @@ class LibraryViewModel @Inject constructor(
     fun restore(item: ItemEntity) = viewModelScope.launch { documents.restore(item.id) }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun LibraryScreen(
     vm: LibraryViewModel,
@@ -138,7 +141,7 @@ fun LibraryScreen(
             }
             item { VoiceInputButton(onText = { vm.query.value = it }, replace = true, label = stringResource(R.string.library_speak_search)) }
             item {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     LanguageChip(stringResource(R.string.filter_all), filter == LibraryFilter.ALL) { vm.filter.value = LibraryFilter.ALL }
                     LanguageChip(stringResource(R.string.filter_notes), filter == LibraryFilter.NOTES) { vm.filter.value = LibraryFilter.NOTES }
                     LanguageChip(stringResource(R.string.filter_documents), filter == LibraryFilter.DOCUMENTS) { vm.filter.value = LibraryFilter.DOCUMENTS }

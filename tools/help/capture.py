@@ -209,6 +209,11 @@ def settings_family(sc):
     sc.scroll_to("settings_family_add")
 
 
+def settings_backup(sc):
+    settings(sc)
+    sc.scroll_to("backup_restore", tries=14)
+
+
 RECIPES = {
     "home": lambda sc: sc.go_home(),
     "note": open_practice_note,
@@ -225,6 +230,7 @@ RECIPES = {
     "ai_result": ai_result,
     "settings": settings,
     "settings_family": settings_family,
+    "settings_backup": settings_backup,
 }
 # Pictures that leave a dialog or panel open, and how to close it afterwards.
 CLOSE = {"scan_intro": "action_cancel", "ai_menu": "ai_close", "ai_result": "ai_undo"}

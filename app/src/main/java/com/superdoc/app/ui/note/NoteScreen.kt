@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
@@ -164,7 +165,7 @@ fun NoteScreen(vm: NoteViewModel, actions: NoteActions, aiPanel: AiPanelSlot? = 
             }
 
             Text(stringResource(R.string.note_voice_language), style = MaterialTheme.typography.labelLarge)
-            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 LanguageChip("हिन्दी", voiceLang == "hi-IN") { voiceLang = "hi-IN" }
                 LanguageChip("English", voiceLang == "en-IN") { voiceLang = "en-IN" }
             }

@@ -38,6 +38,9 @@ import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
 import androidx.compose.foundation.clickable
 import com.superdoc.app.R
 import com.superdoc.app.ui.theme.SeniorColors
@@ -59,6 +62,8 @@ fun SeniorScaffold(
 ) {
     Scaffold(
         topBar = {
+            val density = LocalDensity.current
+            CompositionLocalProvider(LocalDensity provides Density(density.density, density.fontScale.coerceAtMost(TOP_BAR_MAX_FONT_SCALE))) {
             Surface(color = SeniorColors.Primary, contentColor = Color.White, shadowElevation = 4.dp) {
                 Row(
                     Modifier
@@ -92,6 +97,7 @@ fun SeniorScaffold(
                     }
                 }
             }
+            }
         },
         bottomBar = bottomBar,
         snackbarHost = { SeniorSnackbarHost(snackbarHostState) },
@@ -99,6 +105,9 @@ fun SeniorScaffold(
         content = content,
     )
 }
+
+/** The top bar is already large; letting it grow with 200% system text would squeeze the title to one letter. */
+private const val TOP_BAR_MAX_FONT_SCALE = 1.3f
 
 @Composable
 fun TopBarButton(icon: ImageVector, label: String, onClick: () -> Unit) {

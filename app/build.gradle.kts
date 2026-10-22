@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.superdoc.app"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.superdoc.app"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -44,7 +44,14 @@ android {
             if (System.getenv("SUPERDOC_KEYSTORE_PATH") != null) {
                 signingConfig = signingConfigs.getByName("release")
             }
+            // Real phones only; the x86 libraries are for emulators and add about 85 MB.
+            ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") }
         }
+    }
+
+    bundle {
+        // The language is switched inside the app, so every install needs both Hindi and English.
+        language { enableSplit = false }
     }
 
     compileOptions {

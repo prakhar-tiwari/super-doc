@@ -28,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
@@ -131,12 +132,19 @@ private fun ButtonContent(icon: ImageVector?, text: String) {
     }
 }
 
-/** Two big buttons side by side, used for short choices like Yes / No. */
+/** Two big buttons side by side, used for short choices like Yes / No. Stacked when the text is very large. */
 @Composable
 fun ButtonPair(
     first: @Composable (Modifier) -> Unit,
     second: @Composable (Modifier) -> Unit,
 ) {
+    if (LocalDensity.current.fontScale >= STACK_FONT_SCALE) {
+        Column(Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            first(Modifier.fillMaxWidth())
+            second(Modifier.fillMaxWidth())
+        }
+        return
+    }
     Row(
         Modifier
             .fillMaxWidth()
@@ -147,3 +155,6 @@ fun ButtonPair(
         second(Modifier.weight(1f).fillMaxHeight())
     }
 }
+
+/** Above this font scale, side-by-side buttons no longer fit their words. */
+const val STACK_FONT_SCALE = 1.5f

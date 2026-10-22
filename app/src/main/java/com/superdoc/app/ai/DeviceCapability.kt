@@ -4,6 +4,7 @@ import android.app.ActivityManager
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
+import android.os.Process
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.File
 import javax.inject.Inject
@@ -25,8 +26,11 @@ class DeviceCapability @Inject constructor(@ApplicationContext private val conte
         return (info.availMem / MB).toInt()
     }
 
-    /** False on phones that can't run any model; the AI buttons are then hidden. */
-    val canRunAi: Boolean get() = !activityManager.isLowRamDevice && totalRamMb >= MIN_RAM_MB
+    /**
+     * False on phones that can't run any model; the AI buttons are then hidden. A 32-bit app
+     * process cannot reliably map a 500 MB+ model, so those phones are left out too.
+     */
+    val canRunAi: Boolean get() = Process.is64Bit() && !activityManager.isLowRamDevice && totalRamMb >= MIN_RAM_MB
 
     fun canRun(model: ModelInfo): Boolean = canRunAi && totalRamMb >= model.minRamMb
 

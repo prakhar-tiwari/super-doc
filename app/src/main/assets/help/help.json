@@ -189,7 +189,10 @@
                     "hi": "भाषा यहाँ बदलें: हिन्दी या English।" } },
         { "image": "settings_family", "target": "settings_family_add",
           "text": { "en": "Add a family member who helps you. Then sending to them, or calling them, is one tap.",
-                    "hi": "मदद करने वाले परिवार के किसी सदस्य को जोड़ें। फिर उन्हें भेजना या फ़ोन करना एक बटन का काम है।" } }
+                    "hi": "मदद करने वाले परिवार के किसी सदस्य को जोड़ें। फिर उन्हें भेजना या फ़ोन करना एक बटन का काम है।" } },
+        { "image": "settings_backup", "target": "backup_save",
+          "text": { "en": "Keep your documents safe: press “{backup_save}” and choose Google Drive. On a new phone, press “{backup_restore}”.",
+                    "hi": "दस्तावेज़ सुरक्षित रखें: “{backup_save}” दबाएँ और Google Drive चुनें। नए फ़ोन पर “{backup_restore}” दबाएँ।" } }
       ]
     }
   ]

@@ -1,6 +1,8 @@
 package com.superdoc.app.ui.settings
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -70,6 +72,7 @@ class SettingsViewModel @Inject constructor(private val settings: SettingsReposi
 /** Extra sections contributed by later features (AI, practice, backup), so this screen stays small. */
 typealias SettingsSection = @Composable ColumnScope.() -> Unit
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SettingsScreen(
     vm: SettingsViewModel,
@@ -107,7 +110,7 @@ fun SettingsScreen(
             }
 
             Section(stringResource(R.string.settings_text_size)) {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                     TEXT_SIZES.forEach { (scale, label) ->
                         LanguageChip(stringResource(label), settings.textScale == scale) { vm.setTextScale(scale) }
                     }

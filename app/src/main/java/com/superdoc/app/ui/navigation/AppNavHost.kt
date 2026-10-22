@@ -8,6 +8,9 @@ import com.superdoc.app.ui.components.BusyOverlay
 import com.superdoc.app.ui.help.HelpIndexScreen
 import com.superdoc.app.ui.help.HelpScreen
 import com.superdoc.app.ui.help.PracticeSettingsSection
+import com.superdoc.app.ui.settings.BackupSettingsSection
+import com.superdoc.app.ui.settings.BackupViewModel
+import com.superdoc.app.ui.settings.SettingsSection
 import com.superdoc.app.ui.help.PracticeViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -167,11 +170,12 @@ fun AppNavHost(startAtLanguage: Boolean, nav: NavHostController = rememberNavCon
         }
         composable(Routes.SETTINGS) {
             val practice: PracticeViewModel = hiltViewModel()
+            val backup: BackupViewModel = hiltViewModel()
             SettingsScreen(
                 vm = hiltViewModel(),
                 onBack = back, onHome = home, onHelp = { help("settings") },
                 onAi = { nav.navigate(Routes.AI_SETTINGS) },
-                extraSections = listOf { PracticeSettingsSection(practice) },
+                extraSections = listOf<SettingsSection>({ BackupSettingsSection(backup) }, { PracticeSettingsSection(practice) }),
             )
         }
         composable(Routes.HELP_INDEX) {

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="backup_title">Backup</string>
+    <string name="backup_explain">Save all your documents in one file. Keep it on Google Drive or another phone. On a new phone, use “Restore from a backup” to get them back.</string>
+    <string name="backup_save">Save a backup</string>
+    <string name="backup_restore">Restore from a backup</string>
+    <string name="backup_working">Please wait…</string>
+    <string name="backup_saved_title">Backup saved</string>
+    <string name="backup_saved_message">Documents saved: %1$d. Keep this file safe. Anyone who has it can read your documents.</string>
+    <string name="backup_restored_title">Documents are back</string>
+    <string name="backup_restored_message">Documents added: %1$d. Already on this phone: %2$d. Nothing was deleted.</string>
+    <string name="backup_failed_title">Could not do this</string>
+    <string name="backup_save_failed">The backup could not be saved. Please try another place, or ask your family helper.</string>
+    <string name="backup_restore_failed">This file is not a Super Doc backup, or it is damaged. Nothing was changed.</string>
+</resources>
