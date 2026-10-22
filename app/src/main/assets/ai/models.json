@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "models": [
+    {
+      "id": "qwen2.5-0.5b-q8",
+      "name": "Qwen 2.5 small (0.5B)",
+      "file": "qwen2.5-0.5b-instruct-q8.task",
+      "url": "https://huggingface.co/litert-community/Qwen2.5-0.5B-Instruct/resolve/main/Qwen2.5-0.5B-Instruct_multi-prefill-seq_q8_ekv1280.task",
+      "sha256": "e608953f169aeb1bd7b9155fec2559825e08453fc209b84eda3a781ed0452fd2",
+      "sizeBytes": 546660344,
+      "template": "qwen",
+      "minRamMb": 2600,
+      "maxTokens": 1280,
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "qwen2.5-1.5b-q8",
+      "name": "Qwen 2.5 better (1.5B)",
+      "file": "qwen2.5-1.5b-instruct-q8.task",
+      "url": "https://huggingface.co/litert-community/Qwen2.5-1.5B-Instruct/resolve/main/Qwen2.5-1.5B-Instruct_multi-prefill-seq_q8_ekv1280.task",
+      "sha256": "8d867a7c93a6acf2892f08e0174e2f6f351ad256b7e3cfb6d6cd9c89794b42e0",
+      "sizeBytes": 1597913616,
+      "template": "qwen",
+      "minRamMb": 5500,
+      "maxTokens": 1280,
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "gemma3-1b-int4",
+      "name": "Gemma 3 (1B)",
+      "file": "gemma3-1b-it-int4.task",
+      "url": null,
+      "sha256": null,
+      "sizeBytes": 554661243,
+      "template": "gemma",
+      "hindi": true,
+      "minRamMb": 2600,
+      "maxTokens": 1280,
+      "license": "Gemma Terms of Use (accept on Hugging Face, then import the file)"
+    }
+  ]
+}

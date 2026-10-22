@@ -37,6 +37,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -69,6 +70,9 @@ import com.superdoc.app.ui.theme.SeniorColors
 import com.superdoc.app.util.AppLocale
 import com.superdoc.app.voice.Speaker
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
+
+private const val AI_UNDO_MS = 30_000L
 
 data class NoteActions(
     val back: () -> Unit,
@@ -78,8 +82,20 @@ data class NoteActions(
     val deleted: () -> Unit,
 )
 
-/** Slot for the AI helper panel (added by the AI feature); keeps this screen independent of it. */
-typealias AiPanelSlot = @Composable (vm: NoteViewModel, snackbar: SnackbarHostState, onExport: () -> Unit, onDismiss: () -> Unit) -> Unit
+/** What the AI helper panel may do on this screen; spoken instructions can also read, send or export. */
+class NoteAiHost(
+    val vm: NoteViewModel,
+    /** Puts [after] in the note and offers Undo; runs on this screen so it outlives the closed panel. */
+    val replaceWithUndo: (before: String, after: String) -> Unit,
+    val voiceLanguage: String,
+    val export: () -> Unit,
+    val send: () -> Unit,
+    val readAloud: () -> Unit,
+    val dismiss: () -> Unit,
+)
+
+/** Slot for the AI helper panel; keeps this screen independent of the AI feature. */
+typealias AiPanelSlot = @Composable (NoteAiHost) -> Unit
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -88,6 +104,8 @@ fun NoteScreen(vm: NoteViewModel, actions: NoteActions, aiPanel: AiPanelSlot? = 
     val item by vm.item.collectAsState()
     val speaking by vm.speaker.speaking.collectAsState()
     val snackbar = remember { SnackbarHostState() }
+    val aiChangedMsg = stringResource(R.string.ai_kept_message)
+    val undoLabel = stringResource(R.string.action_undo)
     val scope = rememberCoroutineScope()
     val keyboard = LocalSoftwareKeyboardController.current
     val focus = LocalFocusManager.current
@@ -209,7 +227,26 @@ fun NoteScreen(vm: NoteViewModel, actions: NoteActions, aiPanel: AiPanelSlot? = 
     }
 
     if (showAi && aiPanel != null) {
-        aiPanel(vm, snackbar, { scope.launch { vm.saveNow(); vm.id?.let(actions.export) } }) { showAi = false }
+        aiPanel(
+            NoteAiHost(
+                vm = vm,
+                replaceWithUndo = { before, after ->
+                    vm.replaceAll(after)
+                    scope.launch {
+                        // Longer than SnackbarDuration.Long (10 s): older users need time to read and decide.
+                        val r = withTimeoutOrNull(AI_UNDO_MS) { snackbar.showSnackbar(aiChangedMsg, undoLabel, duration = SnackbarDuration.Indefinite) }
+                        if (r == SnackbarResult.ActionPerformed) vm.replaceAll(before)
+                    }
+                },
+                voiceLanguage = voiceLang,
+                export = { withText { scope.launch { vm.saveNow(); vm.id?.let(actions.export) } } },
+                send = { withText { scope.launch { vm.saveNow(); sending = true } } },
+                readAloud = {
+                    withText { if (vm.speaker.speak(vm.text.text) == Speaker.Result.LANGUAGE_MISSING) ttsMissing = true }
+                },
+                dismiss = { showAi = false },
+            )
+        )
     }
 
     if (renaming) {

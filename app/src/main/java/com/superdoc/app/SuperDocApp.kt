@@ -2,6 +2,7 @@ package com.superdoc.app
 
 import android.app.Application
 import android.content.ComponentCallbacks2
+import com.superdoc.app.ai.LlmEngine
 import com.superdoc.app.data.DocumentsRepository
 import com.superdoc.app.pdf.ThumbnailCache
 import com.tom_roush.pdfbox.android.PDFBoxResourceLoader
@@ -16,6 +17,7 @@ import javax.inject.Inject
 class SuperDocApp : Application() {
     @Inject lateinit var documents: DocumentsRepository
     @Inject lateinit var thumbnails: ThumbnailCache
+    @Inject lateinit var llm: LlmEngine
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
@@ -27,6 +29,9 @@ class SuperDocApp : Application() {
 
     override fun onTrimMemory(level: Int) {
         super.onTrimMemory(level)
-        if (level >= ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW) thumbnails.clear()
+        if (level >= ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW) {
+            thumbnails.clear()
+            llm.release()
+        }
     }
 }

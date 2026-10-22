@@ -8,6 +8,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.superdoc.app.data.ItemEntity
 import com.superdoc.app.data.ItemType
+import com.superdoc.app.ui.ai.AiPanel
+import com.superdoc.app.ui.ai.AiSettingsScreen
+import com.superdoc.app.ui.ai.AiViewModel
 import com.superdoc.app.ui.export.ExportScreen
 import com.superdoc.app.ui.home.HomeActions
 import com.superdoc.app.ui.home.HomeScreen
@@ -65,6 +68,7 @@ fun AppNavHost(startAtLanguage: Boolean, nav: NavHostController = rememberNavCon
             )
         }
         composable(Routes.NOTE) {
+            val ai: AiViewModel = hiltViewModel()
             NoteScreen(
                 vm = hiltViewModel(),
                 actions = NoteActions(
@@ -72,7 +76,13 @@ fun AppNavHost(startAtLanguage: Boolean, nav: NavHostController = rememberNavCon
                     export = { id -> nav.navigate(Routes.export(id)) },
                     deleted = back,
                 ),
+                aiPanel = if (ai.deviceSupported) {
+                    { host -> AiPanel(host, ai, onSetup = { nav.navigate(Routes.AI_SETTINGS) }) }
+                } else null,
             )
+        }
+        composable(Routes.AI_SETTINGS) {
+            AiSettingsScreen(vm = hiltViewModel(), onBack = back, onHome = home, onHelp = { help("ai") })
         }
         composable(Routes.LIBRARY) {
             LibraryScreen(
