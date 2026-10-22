@@ -40,9 +40,17 @@ class DocumentsRepository @Inject constructor(
         nameHint: String?,
         pageCount: Int,
         isSample: Boolean = false,
+    ): Long = addFile(file, type, AppLocale.string(context, prefixRes), nameHint, pageCount, isSample)
+
+    suspend fun addFile(
+        file: File,
+        type: ItemType,
+        prefix: String,
+        nameHint: String?,
+        pageCount: Int,
+        isSample: Boolean = false,
     ): Long {
         val now = System.currentTimeMillis()
-        val prefix = AppLocale.string(context, prefixRes)
         val base = AutoNamer.title(prefix, nameHint, now, AppLocale.current())
         val title = AutoNamer.unique(base, dao.activeTitles(0))
         return dao.insert(

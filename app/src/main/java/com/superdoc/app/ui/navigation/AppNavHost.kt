@@ -19,6 +19,11 @@ import com.superdoc.app.ui.note.NoteActions
 import com.superdoc.app.ui.note.NoteScreen
 import com.superdoc.app.ui.scan.rememberScanFlow
 import com.superdoc.app.ui.settings.SettingsScreen
+import com.superdoc.app.ui.tools.MergeScreen
+import com.superdoc.app.ui.tools.PagesScreen
+import com.superdoc.app.ui.tools.PickDocumentScreen
+import com.superdoc.app.ui.tools.SplitScreen
+import com.superdoc.app.ui.tools.ToolsScreen
 import com.superdoc.app.ui.viewer.ViewerActions
 import com.superdoc.app.ui.viewer.ViewerScreen
 import com.superdoc.app.ui.viewer.ViewerViewModel
@@ -30,6 +35,10 @@ fun AppNavHost(startAtLanguage: Boolean, nav: NavHostController = rememberNavCon
     val help = { topic: String -> nav.navigate(Routes.help(topic)) }
     val open = { item: ItemEntity ->
         if (item.type == ItemType.NOTE) nav.navigate(Routes.note(item.id)) else nav.navigate(Routes.viewer(item.id))
+    }
+    /** Opens what a tool made; Back from there returns to the screen before the tool. */
+    val openResult = { route: String, item: ItemEntity ->
+        nav.navigate(Routes.viewer(item.id)) { popUpTo(route) { inclusive = true } }
     }
 
     NavHost(navController = nav, startDestination = if (startAtLanguage) Routes.LANGUAGE else Routes.HOME) {
@@ -94,6 +103,49 @@ fun AppNavHost(startAtLanguage: Boolean, nav: NavHostController = rememberNavCon
                 vm = hiltViewModel(),
                 onBack = back, onHome = home, onHelp = { help("export") },
                 onOpen = { item -> nav.navigate(Routes.viewer(item.id)) { popUpTo(Routes.EXPORT) { inclusive = true } } },
+            )
+        }
+        composable(Routes.TOOLS) {
+            ToolsScreen(
+                onBack = back, onHome = home, onHelp = { help("tools") },
+                onMerge = { nav.navigate(Routes.MERGE) },
+                onTool = { nav.navigate(Routes.pickForTool(it)) },
+            )
+        }
+        composable(Routes.PICK_FOR_TOOL) {
+            PickDocumentScreen(
+                vm = hiltViewModel(),
+                onBack = back, onHome = home, onHelp = { help("tools") },
+                onPicked = { tool, item ->
+                    val route = when (tool) {
+                        PageTool.SPLIT -> Routes.split(item.id)
+                        PageTool.REMOVE -> Routes.pages(item.id, PageMode.REMOVE)
+                        PageTool.ADD -> Routes.pages(item.id, PageMode.ADD)
+                        PageTool.REORDER -> Routes.pages(item.id, PageMode.REORDER)
+                    }
+                    nav.navigate(route) { popUpTo(Routes.PICK_FOR_TOOL) { inclusive = true } }
+                },
+            )
+        }
+        composable(Routes.MERGE) {
+            MergeScreen(
+                vm = hiltViewModel(),
+                onBack = back, onHome = home, onHelp = { help("tools") },
+                onOpen = { openResult(Routes.MERGE, it) }, onDone = back,
+            )
+        }
+        composable(Routes.PAGES) {
+            PagesScreen(
+                vm = hiltViewModel(),
+                onBack = back, onHome = home, onHelp = { help("tools") },
+                onOpen = { openResult(Routes.PAGES, it) }, onDone = back,
+            )
+        }
+        composable(Routes.SPLIT) {
+            SplitScreen(
+                vm = hiltViewModel(),
+                onBack = back, onHome = home, onHelp = { help("tools") },
+                onOpen = { openResult(Routes.SPLIT, it) }, onDone = back,
             )
         }
         composable(Routes.SETTINGS) {

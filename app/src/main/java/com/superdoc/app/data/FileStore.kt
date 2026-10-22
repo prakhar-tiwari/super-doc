@@ -23,8 +23,11 @@ class FileStore @Inject constructor(@ApplicationContext private val context: Con
 
     fun docFile(fileName: String): File = File(docsDir, fileName)
 
-    fun copyIntoDocs(uri: Uri, extension: String): File {
-        val target = newDocFile(extension)
+    fun copyIntoDocs(uri: Uri, extension: String): File = copy(uri, newDocFile(extension))
+
+    fun copyIntoWork(uri: Uri, extension: String): File = copy(uri, newWorkFile(extension))
+
+    private fun copy(uri: Uri, target: File): File {
         context.contentResolver.openInputStream(uri).use { input ->
             requireNotNull(input) { "Cannot open $uri" }
             target.outputStream().use { input.copyTo(it) }

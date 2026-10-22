@@ -15,6 +15,14 @@ class AutoNamerTest {
     }
 
     @Test
+    fun `core keeps the meaningful middle of automatic names`() {
+        assertEquals("Gas bill", AutoNamer.core("Scan - Gas bill - 22 Oct 2026 (2)", isAuto = true))
+        assertEquals("गैस बिल", AutoNamer.core("स्कैन - गैस बिल - 22 अक्तू॰ 2026", isAuto = true))
+        assertEquals("", AutoNamer.core("Scan - 22 Oct 2026", isAuto = true))
+        assertEquals("Ram - Shyam letters", AutoNamer.core("Ram - Shyam letters", isAuto = false))
+    }
+
+    @Test
     fun `empty text gives prefix and date only`() {
         assertEquals("Scan - 22 Oct 2026", AutoNamer.title("Scan", "   ", time, Locale.ENGLISH))
     }

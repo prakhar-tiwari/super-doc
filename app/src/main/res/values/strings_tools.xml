@@ -5,4 +5,104 @@
     <string name="tool_remove">Remove pages</string>
     <string name="tool_add">Add pages</string>
     <string name="tool_reorder">Change page order</string>
+
+    <string name="tool_merge_sub">Make one document from two or more</string>
+    <string name="tool_split_sub">Make smaller documents from one</string>
+    <string name="tool_remove_sub">Take out pages you don\'t need</string>
+    <string name="tool_add_sub">Put new pages anywhere: from the camera, photos or another document</string>
+    <string name="tool_reorder_sub">Move pages up or down</string>
+
+    <string name="name_prefix_changed">Changed</string>
+    <string name="name_prefix_part_n">Part %1$d</string>
+
+    <string name="tools_title">More tools</string>
+    <string name="tools_intro">Choose what you want to do. Your original document always stays as it is; the result is saved as a new document.</string>
+    <string name="tools_pick_document">Which document?</string>
+    <string name="tools_no_pdfs">You have no PDF documents yet.\n\nGo to Home and use “Photo to Document”, or make a PDF from a note.</string>
+    <string name="tools_working">Making the new document…\nPlease wait.</string>
+    <string name="tools_failed_title">That did not work</string>
+    <string name="tools_failed">Something went wrong and nothing was changed. Please try again.</string>
+    <string name="tools_failed_memory">This document is too big for this phone to change. Try fewer pages at a time.</string>
+    <string name="tools_done_title">Done!</string>
+    <string name="tools_done_one">A new document has been saved in “My Documents”.</string>
+    <string name="tools_done_many">%1$d new documents have been saved in “My Documents”.</string>
+    <string name="tools_original_kept">Your original document has not been changed.</string>
+    <string name="tools_originals_kept">Your original documents have not been changed.</string>
+    <string name="tools_open_named">Open: %1$s</string>
+    <string name="tools_yes_make">Yes, make it</string>
+    <string name="tools_start_again">Start again</string>
+
+    <!-- Remove -->
+    <string name="tools_remove_instruction">Tap the pages you want to remove. They get a red cross. Tap again to keep a page.</string>
+    <string name="tools_marked_for_removal">Will be removed</string>
+    <string name="tools_kept">Will be kept</string>
+    <string name="tools_none_marked">No pages chosen yet</string>
+    <plurals name="tools_marked_count">
+        <item quantity="one">%1$d page chosen to remove</item>
+        <item quantity="other">%1$d pages chosen to remove</item>
+    </plurals>
+    <string name="tools_cannot_remove_all">You have chosen every page. At least one page must stay.</string>
+    <string name="tools_remove_button">Remove chosen pages</string>
+    <string name="tools_remove_confirm_title">Remove these pages?</string>
+    <string name="tools_remove_confirm_message">A new document will be made without these pages: %1$s. Your original document stays as it is.</string>
+
+    <!-- Add -->
+    <string name="tools_add_instruction">1. Tap “Put new pages here” where the new pages should go.\n2. Then press “Choose the new pages” at the bottom.</string>
+    <string name="tools_slot_put_here">Put new pages here</string>
+    <string name="tools_slot_chosen">New pages will go here</string>
+    <string name="tools_position_label">New pages go: %1$s</string>
+    <string name="tools_position_start">at the start</string>
+    <string name="tools_position_end">at the end</string>
+    <string name="tools_position_after">after page %1$d</string>
+    <string name="tools_add_choose_pages">Choose the new pages</string>
+    <string name="tools_add_from_title">Where are the new pages?</string>
+    <string name="tools_add_camera">Take photos with the camera</string>
+    <string name="tools_add_photos">Choose photos from the phone</string>
+    <string name="tools_add_document">From “My Documents”</string>
+    <string name="tools_add_phone_file">A PDF file on the phone</string>
+    <string name="tools_no_other_pdfs">There is no other PDF document in “My Documents”.</string>
+
+    <!-- Reorder -->
+    <string name="tools_reorder_instruction">Press “Move up” or “Move down” to change the order. The page you moved last has a yellow border.</string>
+    <string name="tools_place">Place %1$d</string>
+    <string name="tools_move_up">Move up</string>
+    <string name="tools_move_down">Move down</string>
+    <string name="tools_order_unchanged">Move a page to change the order.</string>
+    <string name="tools_save_order">Save new order</string>
+
+    <!-- Split -->
+    <string name="tools_split_question">This document has %1$d pages. How do you want to split it?</string>
+    <string name="tools_split_every">Every page separately</string>
+    <string name="tools_split_every_sub">Makes %1$d documents, one for each page.</string>
+    <string name="tools_split_choose">Choose some pages</string>
+    <string name="tools_split_choose_sub">The pages you choose become one new document.</string>
+    <string name="tools_split_cut">Cut into two parts</string>
+    <string name="tools_split_cut_sub">You choose where the first part ends.</string>
+    <string name="tools_split_one_page">This document has only one page, so it cannot be split.</string>
+    <string name="tools_choose_instruction">Tap the pages for the new document. They get a green tick.</string>
+    <string name="tools_chosen">Chosen</string>
+    <string name="tools_not_chosen">Not chosen</string>
+    <string name="tools_none_chosen">No pages chosen yet</string>
+    <plurals name="tools_chosen_count">
+        <item quantity="one">%1$d page chosen</item>
+        <item quantity="other">%1$d pages chosen</item>
+    </plurals>
+    <string name="tools_make_from_chosen">Make new document</string>
+    <string name="tools_cut_instruction">Tap “Cut here” between the pages where the first part should end.</string>
+    <string name="tools_cut_here">Cut here</string>
+    <string name="tools_cut_chosen">The cut is here</string>
+    <string name="tools_cut_button">Cut into two</string>
+    <string name="tools_split_every_confirm">This will make %1$d new documents, one for each page.</string>
+    <string name="tools_split_chosen_confirm">A new document will be made from these pages: %1$s.</string>
+    <string name="tools_split_cut_confirm">Part 1 will end at page %1$d. Part 2 will start at page %2$d.</string>
+
+    <!-- Merge -->
+    <string name="tools_merge_instruction">Tap the documents in the order you want them joined. The first one you tap comes first.</string>
+    <string name="tools_merge_position">Number %1$d</string>
+    <string name="tools_merge_none">Choose at least two documents</string>
+    <string name="tools_merge_one_more">Choose one more document</string>
+    <string name="tools_merge_count">%1$d documents chosen</string>
+    <string name="tools_merge_button">Join them</string>
+    <string name="tools_merge_need_two">You need at least two PDF documents to join.\n\nGo to Home and use “Photo to Document” first.</string>
+    <string name="tools_merge_confirm_title">Join in this order?</string>
 </resources>

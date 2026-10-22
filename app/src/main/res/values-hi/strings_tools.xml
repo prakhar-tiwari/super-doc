@@ -5,4 +5,99 @@
     <string name="tool_remove">पेज हटाएँ</string>
     <string name="tool_add">पेज डालें</string>
     <string name="tool_reorder">पेज का क्रम बदलें</string>
+
+    <string name="tool_merge_sub">दो या ज़्यादा दस्तावेज़ों से एक दस्तावेज़ बनाएँ</string>
+    <string name="tool_split_sub">एक दस्तावेज़ से छोटे दस्तावेज़ बनाएँ</string>
+    <string name="tool_remove_sub">जो पेज नहीं चाहिए, उन्हें निकालें</string>
+    <string name="tool_add_sub">कहीं भी नए पेज डालें: कैमरा, फ़ोटो या दूसरे दस्तावेज़ से</string>
+    <string name="tool_reorder_sub">पेज ऊपर या नीचे करें</string>
+
+    <string name="name_prefix_changed">बदला हुआ</string>
+    <string name="name_prefix_part_n">भाग %1$d</string>
+
+    <string name="tools_title">और टूल</string>
+    <string name="tools_intro">चुनिए आप क्या करना चाहते हैं। आपका असली दस्तावेज़ हमेशा वैसा ही रहता है; नतीजा एक नए दस्तावेज़ के रूप में सेव होता है।</string>
+    <string name="tools_pick_document">कौन सा दस्तावेज़?</string>
+    <string name="tools_no_pdfs">अभी आपके पास कोई PDF दस्तावेज़ नहीं है।\n\nहोम पर जाकर “फ़ोटो से दस्तावेज़” का इस्तेमाल करें, या किसी नोट से PDF बनाएँ।</string>
+    <string name="tools_working">नया दस्तावेज़ बन रहा है…\nकृपया रुकिए।</string>
+    <string name="tools_failed_title">यह नहीं हो पाया</string>
+    <string name="tools_failed">कुछ गड़बड़ हो गई और कुछ नहीं बदला। कृपया फिर से कोशिश करें।</string>
+    <string name="tools_failed_memory">यह दस्तावेज़ इस फ़ोन के लिए बहुत बड़ा है। एक बार में कम पेज लेकर कोशिश करें।</string>
+    <string name="tools_done_title">हो गया!</string>
+    <string name="tools_done_one">एक नया दस्तावेज़ “मेरे दस्तावेज़” में सेव हो गया है।</string>
+    <string name="tools_done_many">%1$d नए दस्तावेज़ “मेरे दस्तावेज़” में सेव हो गए हैं।</string>
+    <string name="tools_original_kept">आपका असली दस्तावेज़ नहीं बदला गया है।</string>
+    <string name="tools_originals_kept">आपके असली दस्तावेज़ नहीं बदले गए हैं।</string>
+    <string name="tools_open_named">खोलें: %1$s</string>
+    <string name="tools_yes_make">हाँ, बनाइए</string>
+    <string name="tools_start_again">फिर से शुरू करें</string>
+
+    <string name="tools_remove_instruction">जो पेज हटाने हैं उन्हें छुएँ। उन पर लाल क्रॉस आ जाएगा। पेज रखना हो तो फिर से छुएँ।</string>
+    <string name="tools_marked_for_removal">हटाया जाएगा</string>
+    <string name="tools_kept">रखा जाएगा</string>
+    <string name="tools_none_marked">अभी कोई पेज नहीं चुना</string>
+    <plurals name="tools_marked_count">
+        <item quantity="one">हटाने के लिए %1$d पेज चुना</item>
+        <item quantity="other">हटाने के लिए %1$d पेज चुने</item>
+    </plurals>
+    <string name="tools_cannot_remove_all">आपने सारे पेज चुन लिए हैं। कम से कम एक पेज रहना चाहिए।</string>
+    <string name="tools_remove_button">चुने हुए पेज हटाएँ</string>
+    <string name="tools_remove_confirm_title">ये पेज हटाएँ?</string>
+    <string name="tools_remove_confirm_message">इन पेजों के बिना एक नया दस्तावेज़ बनेगा: %1$s। आपका असली दस्तावेज़ वैसा ही रहेगा।</string>
+
+    <string name="tools_add_instruction">1. जहाँ नए पेज जाने चाहिए वहाँ “नए पेज यहाँ डालें” छुएँ।\n2. फिर नीचे “नए पेज चुनें” दबाएँ।</string>
+    <string name="tools_slot_put_here">नए पेज यहाँ डालें</string>
+    <string name="tools_slot_chosen">नए पेज यहाँ जाएँगे</string>
+    <string name="tools_position_label">नए पेज जाएँगे: %1$s</string>
+    <string name="tools_position_start">शुरू में</string>
+    <string name="tools_position_end">आख़िर में</string>
+    <string name="tools_position_after">पेज %1$d के बाद</string>
+    <string name="tools_add_choose_pages">नए पेज चुनें</string>
+    <string name="tools_add_from_title">नए पेज कहाँ से लें?</string>
+    <string name="tools_add_camera">कैमरे से फ़ोटो खींचें</string>
+    <string name="tools_add_photos">फ़ोन से फ़ोटो चुनें</string>
+    <string name="tools_add_document">“मेरे दस्तावेज़” से</string>
+    <string name="tools_add_phone_file">फ़ोन में रखी PDF फ़ाइल</string>
+    <string name="tools_no_other_pdfs">“मेरे दस्तावेज़” में कोई दूसरा PDF दस्तावेज़ नहीं है।</string>
+
+    <string name="tools_reorder_instruction">क्रम बदलने के लिए “ऊपर करें” या “नीचे करें” दबाएँ। जो पेज आपने आख़िर में हिलाया, उसके चारों ओर पीली लाइन होगी।</string>
+    <string name="tools_place">स्थान %1$d</string>
+    <string name="tools_move_up">ऊपर करें</string>
+    <string name="tools_move_down">नीचे करें</string>
+    <string name="tools_order_unchanged">क्रम बदलने के लिए किसी पेज को ऊपर या नीचे करें।</string>
+    <string name="tools_save_order">नया क्रम सेव करें</string>
+
+    <string name="tools_split_question">इस दस्तावेज़ में %1$d पेज हैं। इसे कैसे अलग करना है?</string>
+    <string name="tools_split_every">हर पेज अलग</string>
+    <string name="tools_split_every_sub">%1$d दस्तावेज़ बनेंगे, हर पेज का एक।</string>
+    <string name="tools_split_choose">कुछ पेज चुनें</string>
+    <string name="tools_split_choose_sub">आपके चुने हुए पेज एक नया दस्तावेज़ बनेंगे।</string>
+    <string name="tools_split_cut">दो भागों में काटें</string>
+    <string name="tools_split_cut_sub">आप चुनते हैं कि पहला भाग कहाँ ख़त्म हो।</string>
+    <string name="tools_split_one_page">इस दस्तावेज़ में सिर्फ़ एक पेज है, इसलिए इसे अलग नहीं किया जा सकता।</string>
+    <string name="tools_choose_instruction">नए दस्तावेज़ के पेज छुएँ। उन पर हरा सही का निशान आ जाएगा।</string>
+    <string name="tools_chosen">चुना गया</string>
+    <string name="tools_not_chosen">नहीं चुना</string>
+    <string name="tools_none_chosen">अभी कोई पेज नहीं चुना</string>
+    <plurals name="tools_chosen_count">
+        <item quantity="one">%1$d पेज चुना</item>
+        <item quantity="other">%1$d पेज चुने</item>
+    </plurals>
+    <string name="tools_make_from_chosen">नया दस्तावेज़ बनाएँ</string>
+    <string name="tools_cut_instruction">पेजों के बीच “यहाँ काटें” छुएँ, जहाँ पहला भाग ख़त्म होना चाहिए।</string>
+    <string name="tools_cut_here">यहाँ काटें</string>
+    <string name="tools_cut_chosen">कट यहाँ है</string>
+    <string name="tools_cut_button">दो भागों में काटें</string>
+    <string name="tools_split_every_confirm">इससे %1$d नए दस्तावेज़ बनेंगे, हर पेज का एक।</string>
+    <string name="tools_split_chosen_confirm">इन पेजों से एक नया दस्तावेज़ बनेगा: %1$s।</string>
+    <string name="tools_split_cut_confirm">भाग 1 पेज %1$d पर ख़त्म होगा। भाग 2 पेज %2$d से शुरू होगा।</string>
+
+    <string name="tools_merge_instruction">दस्तावेज़ों को उसी क्रम में छुएँ जिसमें उन्हें जोड़ना है। जिसे पहले छुएँगे, वह पहले आएगा।</string>
+    <string name="tools_merge_position">नंबर %1$d</string>
+    <string name="tools_merge_none">कम से कम दो दस्तावेज़ चुनें</string>
+    <string name="tools_merge_one_more">एक और दस्तावेज़ चुनें</string>
+    <string name="tools_merge_count">%1$d दस्तावेज़ चुने</string>
+    <string name="tools_merge_button">इन्हें जोड़ें</string>
+    <string name="tools_merge_need_two">जोड़ने के लिए कम से कम दो PDF दस्तावेज़ चाहिए।\n\nपहले होम पर जाकर “फ़ोटो से दस्तावेज़” का इस्तेमाल करें।</string>
+    <string name="tools_merge_confirm_title">इसी क्रम में जोड़ें?</string>
 </resources>

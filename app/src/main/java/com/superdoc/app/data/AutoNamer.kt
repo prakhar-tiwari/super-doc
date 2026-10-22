@@ -33,6 +33,17 @@ object AutoNamer {
         return if (truncated) "$result…" else result
     }
 
+    /**
+     * The meaningful middle of a name, used to name documents made from it:
+     * "Scan - Gas bill - 22 Oct 2026 (2)" gives "Gas bill". Names the user typed are kept whole.
+     */
+    fun core(title: String, isAuto: Boolean): String {
+        val clean = title.replace(Regex("\\s\\(\\d+\\)$"), "").trim()
+        if (!isAuto) return clean
+        val parts = clean.split(" - ")
+        return if (parts.size >= 3) parts.subList(1, parts.size - 1).joinToString(" - ") else ""
+    }
+
     /** Adds " (2)", " (3)" ... when the same name already exists. */
     fun unique(base: String, existing: Collection<String>): String {
         if (base !in existing) return base
