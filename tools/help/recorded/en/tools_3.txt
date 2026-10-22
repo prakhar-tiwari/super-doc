@@ -1,0 +1,1 @@
+“Remove pages”: tap the pages you don't need. They get a red cross.

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_title">मदद</string>
+    <string name="help_step_of">चरण %1$d / %2$d</string>
+    <string name="help_next">आगे</string>
+    <string name="help_previous">पिछला</string>
+    <string name="help_done">हो गया</string>
+    <string name="help_listen">फिर से सुनें</string>
+    <string name="help_stop_voice">आवाज़ बंद करें</string>
+    <string name="help_call_family">अब भी समझ नहीं आया? %1$s को फ़ोन करें</string>
+    <string name="help_family_tip">सुझाव: सेटिंग में परिवार के मददगार को जोड़ें। फिर आप यहीं से उन्हें फ़ोन कर सकेंगे।</string>
+    <string name="help_tour_button">ऐप की सैर शुरू करें</string>
+    <string name="help_tour_sub">तस्वीरों और आवाज़ के साथ ऐप की छोटी-सी सैर</string>
+    <string name="help_practice_button">उदाहरणों से अभ्यास करें</string>
+    <string name="help_practice_sub">अभ्यास के लिए एक नमूना नोट और एक नमूना पत्र जोड़ता है</string>
+    <string name="help_topics">हर स्क्रीन की मदद</string>
+    <string name="help_practice_added_title">अभ्यास के उदाहरण तैयार हैं</string>
+    <string name="help_practice_added_message">“अभ्यास” लिखा एक नोट और एक पत्र अब मेरे दस्तावेज़ में है। इन्हें खोलें, खुद को भेजें, बदलें या मिटाएँ। कुछ भी बिगड़ेगा नहीं।</string>
+    <string name="help_open_documents">मेरे दस्तावेज़ खोलें</string>
+    <string name="help_try_now">अभ्यास के उदाहरणों से अभी आज़माएँ</string>
+    <string name="help_missing">माफ़ कीजिए, यह मदद पेज उपलब्ध नहीं है।</string>
+    <string name="help_picture">स्क्रीन की तस्वीर। जहाँ दबाना है वह हिस्सा निशान से दिखाया गया है।</string>
+
+    <string name="settings_practice">अभ्यास के उदाहरण</string>
+    <string name="settings_practice_explain">“अभ्यास” लिखा एक नमूना नोट और पत्र, ताकि आप बिना डर ऐप सीख सकें।</string>
+    <string name="settings_practice_add">अभ्यास के उदाहरण जोड़ें</string>
+    <string name="settings_practice_remove">अभ्यास के उदाहरण हटाएँ</string>
+    <string name="settings_practice_removed">अभ्यास के उदाहरण हटा दिए गए।</string>
+    <string name="settings_practice_added">अभ्यास के उदाहरण मेरे दस्तावेज़ में जोड़ दिए गए।</string>
+
+    <string name="practice_note_body">सोमवार सुबह 10 बजे डाक्टर से मिलना है।\nरिपोट, चसमा और खून की जाँच का कागज़ ले जाना है।\nघुटने के दर्द के बारे में पूछना है।</string>
+    <string name="practice_letter_body">मैं अपने बचत खाते से जुड़ा मोबाइल नंबर बदलवाना चाहता हूँ।\nमेरा नया नंबर नीचे लिखा है। कृपया यह बदलाव कर दें।\n\nधन्यवाद।</string>
+    <string name="practice_letter_to">शाखा प्रबंधक\nनमूना बैंक, मुख्य सड़क</string>
+    <string name="practice_letter_subject">मोबाइल नंबर बदलने हेतु प्रार्थना-पत्र (अभ्यास)</string>
+    <string name="practice_letter_signer">आपका नाम</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="help_title">Help</string>
+    <string name="help_step_of">Step %1$d of %2$d</string>
+    <string name="help_next">Next</string>
+    <string name="help_previous">Previous</string>
+    <string name="help_done">Done</string>
+    <string name="help_listen">Listen again</string>
+    <string name="help_stop_voice">Stop the voice</string>
+    <string name="help_call_family">Still not sure? Call %1$s</string>
+    <string name="help_family_tip">Tip: add a family helper in Settings. Then you can call them from here.</string>
+    <string name="help_tour_button">Start the guided tour</string>
+    <string name="help_tour_sub">A short walk through the app, with pictures and voice</string>
+    <string name="help_practice_button">Practice with examples</string>
+    <string name="help_practice_sub">Adds a sample note and a sample letter to try things on</string>
+    <string name="help_topics">Help for each screen</string>
+    <string name="help_practice_added_title">Practice examples are ready</string>
+    <string name="help_practice_added_message">A note and a letter marked “Practice” are now in My Documents. Open them, send them to yourself, change or delete them. Nothing can go wrong.</string>
+    <string name="help_open_documents">Open My Documents</string>
+    <string name="help_try_now">Try it now with practice examples</string>
+    <string name="help_missing">Sorry, this help page is not available.</string>
+    <string name="help_picture">Picture of the screen. The part to tap is marked.</string>
+
+    <string name="settings_practice">Practice examples</string>
+    <string name="settings_practice_explain">A sample note and letter, marked “Practice”, to learn the app without worry.</string>
+    <string name="settings_practice_add">Add practice examples</string>
+    <string name="settings_practice_remove">Remove practice examples</string>
+    <string name="settings_practice_removed">Practice examples removed.</string>
+    <string name="settings_practice_added">Practice examples added to My Documents.</string>
+
+    <string name="practice_note_body">Docter appointment on monday at 10 am.\nTake the reports, glases and the blood test paper.\nAsk about the knee pain.</string>
+    <string name="practice_letter_body">I want to update the mobile number linked to my savings account.\nMy new number is written below. Please make this change.\n\nThank you.</string>
+    <string name="practice_letter_to">The Branch Manager\nSample Bank, Main Road</string>
+    <string name="practice_letter_subject">Request to update mobile number (practice)</string>
+    <string name="practice_letter_signer">Your Name</string>
+</resources>

@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "_comment": "Words in {braces} are app string names and are replaced by the real button text. 'target' is only used by tools/help/capture.py to find the highlight box.",
+  "topics": [
+    {
+      "id": "tour",
+      "icon": "tour",
+      "title": { "en": "Guided tour", "hi": "ऐप की सैर" },
+      "steps": [
+        { "image": "home", "target": null,
+          "text": { "en": "Welcome! This is the Home screen. Everything starts here.",
+                    "hi": "नमस्ते! यह होम स्क्रीन है। सब काम यहीं से शुरू होते हैं।" } },
+        { "image": "home", "target": "home_write_note",
+          "text": { "en": "“{home_write_note}”: type or speak. Your words are saved by themselves.",
+                    "hi": "“{home_write_note}”: लिखें या बोलें। आपकी बात अपने-आप सेव हो जाती है।" } },
+        { "image": "home", "target": "home_scan",
+          "text": { "en": "“{home_scan}”: take photos of papers and get one neat document.",
+                    "hi": "“{home_scan}”: कागज़ों की फ़ोटो लें और एक साफ़ दस्तावेज़ पाएँ।" } },
+        { "image": "home", "target": "home_my_documents",
+          "text": { "en": "“{home_my_documents}”: everything you made, with a name, ready to open or send.",
+                    "hi": "“{home_my_documents}”: आपकी बनाई हर चीज़, नाम के साथ, खोलने या भेजने के लिए तैयार।" } },
+        { "image": "note", "target": "action_home",
+          "text": { "en": "Lost? “{action_home}” at the top always brings you back.",
+                    "hi": "रास्ता भूल गए? ऊपर “{action_home}” दबाएँ, आप वापस आ जाएँगे।" } },
+        { "image": "note", "target": "action_help",
+          "text": { "en": "“{action_help}” shows how each screen works, with pictures and voice. Now try it yourself with the practice examples.",
+                    "hi": "“{action_help}” हर स्क्रीन को तस्वीरों और आवाज़ के साथ समझाता है। अब अभ्यास वाले उदाहरणों से खुद आज़माएँ।" } }
+      ]
+    },
+    {
+      "id": "home",
+      "icon": "home",
+      "title": { "en": "The Home screen", "hi": "होम स्क्रीन" },
+      "steps": [
+        { "image": "home", "target": null,
+          "text": { "en": "This is the Home screen. Tap one big button to start.",
+                    "hi": "यह होम स्क्रीन है। शुरू करने के लिए कोई एक बड़ा बटन दबाएँ।" } },
+        { "image": "home", "target": "home_write_note",
+          "text": { "en": "To write something, tap “{home_write_note}”.",
+                    "hi": "कुछ लिखना हो तो “{home_write_note}” दबाएँ।" } },
+        { "image": "home", "target": "home_scan",
+          "text": { "en": "To turn paper into a document, tap “{home_scan}”.",
+                    "hi": "कागज़ से दस्तावेज़ बनाना हो तो “{home_scan}” दबाएँ।" } },
+        { "image": "home", "target": "home_my_documents",
+          "text": { "en": "Everything you make is kept in “{home_my_documents}”.",
+                    "hi": "आप जो भी बनाते हैं, वह “{home_my_documents}” में रखा रहता है।" } },
+        { "image": "note", "target": "action_home",
+          "text": { "en": "On every screen, “{action_home}” at the top brings you back here.",
+                    "hi": "हर स्क्रीन पर ऊपर “{action_home}” दबाने से आप यहाँ वापस आ जाते हैं।" } }
+      ]
+    },
+    {
+      "id": "note",
+      "icon": "note",
+      "title": { "en": "Writing a note", "hi": "नोट लिखना" },
+      "steps": [
+        { "image": "home", "target": "home_write_note",
+          "text": { "en": "On the Home screen, tap “{home_write_note}”.",
+                    "hi": "होम स्क्रीन पर “{home_write_note}” दबाएँ।" } },
+        { "image": "note", "target": "class:android.widget.EditText",
+          "text": { "en": "Tap the big box and type. It is saved by itself, you never need to press Save.",
+                    "hi": "बड़े डिब्बे पर दबाएँ और लिखें। यह अपने-आप सेव होता है, सेव दबाने की ज़रूरत नहीं।" } },
+        { "image": "note", "target": "voice_speak",
+          "text": { "en": "Don't want to type? Choose हिन्दी or English, then tap “{voice_speak}” and speak.",
+                    "hi": "लिखना नहीं चाहते? हिन्दी या English चुनें, फिर “{voice_speak}” दबाकर बोलें।" } },
+        { "image": "note", "target": "note_send",
+          "text": { "en": "To send the note to someone, tap “{note_send}”.",
+                    "hi": "नोट किसी को भेजना हो तो “{note_send}” दबाएँ।" } },
+        { "image": "note_lower", "target": "note_make_document",
+          "text": { "en": "To make a proper PDF or Word file from it, tap “{note_make_document}”.",
+                    "hi": "इससे PDF या Word फ़ाइल बनानी हो तो “{note_make_document}” दबाएँ।" } }
+      ]
+    },
+    {
+      "id": "scan",
+      "icon": "scan",
+      "title": { "en": "Photo to document", "hi": "फ़ोटो से दस्तावेज़" },
+      "steps": [
+        { "image": "home", "target": "home_scan",
+          "text": { "en": "On the Home screen, tap “{home_scan}”.",
+                    "hi": "होम स्क्रीन पर “{home_scan}” दबाएँ।" } },
+        { "image": "scan_intro", "target": "scan_open_camera",
+          "text": { "en": "Tap “{scan_open_camera}”. Hold the phone above the paper and take a photo of each page.",
+                    "hi": "“{scan_open_camera}” दबाएँ। फ़ोन को कागज़ के ऊपर रखें और हर पन्ने की फ़ोटो लें।" } },
+        { "image": "scan_intro", "target": "scan_from_gallery",
+          "text": { "en": "Photos already on the phone? Tap “{scan_from_gallery}” and choose them.",
+                    "hi": "फ़ोटो पहले से फ़ोन में हैं? “{scan_from_gallery}” दबाकर उन्हें चुनें।" } },
+        { "image": "viewer", "target": null,
+          "text": { "en": "The document gets a name by itself and opens here. It is also in “{home_my_documents}”.",
+                    "hi": "दस्तावेज़ को अपने-आप नाम मिल जाता है और वह यहाँ खुल जाता है। वह “{home_my_documents}” में भी रहता है।" } }
+      ]
+    },
+    {
+      "id": "library",
+      "icon": "library",
+      "title": { "en": "My Documents", "hi": "मेरे दस्तावेज़" },
+      "steps": [
+        { "image": "library", "target": null,
+          "text": { "en": "Here is everything you made. The newest is at the top. Tap one to open it.",
+                    "hi": "यहाँ आपकी बनाई हर चीज़ है। सबसे नई सबसे ऊपर है। खोलने के लिए उस पर दबाएँ।" } },
+        { "image": "library", "target": "library_search_hint",
+          "text": { "en": "To find something, type a word here, or tap “{library_speak_search}”.",
+                    "hi": "कुछ ढूँढना हो तो यहाँ कोई शब्द लिखें, या “{library_speak_search}” दबाएँ।" } },
+        { "image": "library_bin", "target": "recycle_bin_open",
+          "text": { "en": "Deleted something by mistake? Open the Recycle Bin and tap “{recycle_restore}”.",
+                    "hi": "गलती से कुछ मिट गया? रीसायकल बिन खोलें और “{recycle_restore}” दबाएँ।" } }
+      ]
+    },
+    {
+      "id": "viewer",
+      "icon": "viewer",
+      "title": { "en": "Looking at a document", "hi": "दस्तावेज़ देखना" },
+      "steps": [
+        { "image": "viewer", "target": null,
+          "text": { "en": "Your document opens here.",
+                    "hi": "आपका दस्तावेज़ यहाँ खुलता है।" } },
+        { "image": "viewer", "target": "viewer_bigger",
+          "text": { "en": "Tap “{viewer_bigger}” to make the page bigger, or pull it apart with two fingers.",
+                    "hi": "पन्ना बड़ा करने के लिए “{viewer_bigger}” दबाएँ, या दो उँगलियों से फैलाएँ।" } },
+        { "image": "viewer", "target": "note_send",
+          "text": { "en": "To send it on WhatsApp or another app, tap “{note_send}”.",
+                    "hi": "WhatsApp या किसी और ऐप पर भेजने के लिए “{note_send}” दबाएँ।" } },
+        { "image": "viewer", "target": "viewer_more_options",
+          "text": { "en": "“{viewer_more_options}” has page tools, rename, and delete.",
+                    "hi": "“{viewer_more_options}” में पन्नों के काम, नाम बदलना और मिटाना है।" } }
+      ]
+    },
+    {
+      "id": "export",
+      "icon": "export",
+      "title": { "en": "Making a PDF or Word file", "hi": "PDF या Word फ़ाइल बनाना" },
+      "steps": [
+        { "image": "export", "target": "export_letter",
+          "text": { "en": "First choose a style. “{export_letter}” adds the date, “To”, subject and your name.",
+                    "hi": "पहले ढंग चुनें। “{export_letter}” में तारीख, “सेवा में”, विषय और आपका नाम जुड़ जाता है।" } },
+        { "image": "export_type", "target": "export_pdf",
+          "text": { "en": "Then choose the file type. A PDF is best for sending.",
+                    "hi": "फिर फ़ाइल का प्रकार चुनें। भेजने के लिए PDF सबसे अच्छा है।" } },
+        { "image": "export_save", "target": "export_save",
+          "text": { "en": "Check the preview, then tap “{export_save}”.",
+                    "hi": "झलक देख लें, फिर “{export_save}” दबाएँ।" } }
+      ]
+    },
+    {
+      "id": "tools",
+      "icon": "tools",
+      "title": { "en": "Page tools", "hi": "पन्नों के काम" },
+      "steps": [
+        { "image": "home", "target": "home_more_tools",
+          "text": { "en": "For page tools, tap “{home_more_tools}” on the Home screen.",
+                    "hi": "पन्नों के काम के लिए होम स्क्रीन पर “{home_more_tools}” दबाएँ।" } },
+        { "image": "tools", "target": "tool_merge",
+          "text": { "en": "“{tool_merge}” makes one document from two or more. Tap them in the order you want.",
+                    "hi": "“{tool_merge}” दो या ज़्यादा दस्तावेज़ों से एक बनाता है। उन्हें उसी क्रम में दबाएँ जैसा चाहिए।" } },
+        { "image": "tools", "target": "tool_remove",
+          "text": { "en": "“{tool_remove}”: tap the pages you don't need. They get a red cross.",
+                    "hi": "“{tool_remove}”: जो पन्ने नहीं चाहिए उन पर दबाएँ। उन पर लाल निशान लग जाता है।" } },
+        { "image": "tools", "target": null,
+          "text": { "en": "Don't worry: your original document is always kept. The result is saved as a new one.",
+                    "hi": "चिंता न करें: आपका असली दस्तावेज़ हमेशा वैसा ही रहता है। नतीजा नए दस्तावेज़ में सेव होता है।" } }
+      ]
+    },
+    {
+      "id": "ai",
+      "icon": "ai",
+      "title": { "en": "AI helper", "hi": "AI सहायक" },
+      "steps": [
+        { "image": "note_lower", "target": "note_ai_helper",
+          "text": { "en": "In a note, tap “{note_ai_helper}”. It works only on this phone, without internet.",
+                    "hi": "नोट में “{note_ai_helper}” दबाएँ। यह बिना इंटरनेट, सिर्फ़ इसी फ़ोन पर चलता है।" } },
+        { "image": "ai_menu", "target": "ai_fix",
+          "text": { "en": "Tap what you want, for example “{ai_fix}”. Or tap “{ai_speak_instruction}” and say it.",
+                    "hi": "जो चाहिए वह दबाएँ, जैसे “{ai_fix}”। या “{ai_speak_instruction}” दबाकर बोलें।" } },
+        { "image": "ai_result", "target": "ai_keep",
+          "text": { "en": "Read the new text. If it is right, tap “{ai_keep}”. If not, tap “{ai_undo}”.",
+                    "hi": "नया लेख पढ़ें। सही हो तो “{ai_keep}” दबाएँ। नहीं तो “{ai_undo}” दबाएँ।" } }
+      ]
+    },
+    {
+      "id": "settings",
+      "icon": "settings",
+      "title": { "en": "Settings", "hi": "सेटिंग" },
+      "steps": [
+        { "image": "settings", "target": "settings_text_size",
+          "text": { "en": "Letters too small? Choose a bigger text size here.",
+                    "hi": "अक्षर छोटे लगते हैं? यहाँ बड़ा आकार चुनें।" } },
+        { "image": "settings", "target": "settings_language",
+          "text": { "en": "Change the language here: हिन्दी or English.",
+                    "hi": "भाषा यहाँ बदलें: हिन्दी या English।" } },
+        { "image": "settings_family", "target": "settings_family_add",
+          "text": { "en": "Add a family member who helps you. Then sending to them, or calling them, is one tap.",
+                    "hi": "मदद करने वाले परिवार के किसी सदस्य को जोड़ें। फिर उन्हें भेजना या फ़ोन करना एक बटन का काम है।" } }
+      ]
+    }
+  ]
+}

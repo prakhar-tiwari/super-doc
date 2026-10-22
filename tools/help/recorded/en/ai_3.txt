@@ -1,0 +1,1 @@
+Read the new text. If it is right, tap “Keep the new text”. If not, tap “No, keep my old text”.

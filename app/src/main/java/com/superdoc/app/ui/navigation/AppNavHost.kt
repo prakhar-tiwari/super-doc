@@ -1,7 +1,14 @@
 package com.superdoc.app.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.superdoc.app.R
+import com.superdoc.app.ui.components.BusyOverlay
+import com.superdoc.app.ui.help.HelpIndexScreen
+import com.superdoc.app.ui.help.HelpScreen
+import com.superdoc.app.ui.help.PracticeSettingsSection
+import com.superdoc.app.ui.help.PracticeViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -159,11 +166,31 @@ fun AppNavHost(startAtLanguage: Boolean, nav: NavHostController = rememberNavCon
             )
         }
         composable(Routes.SETTINGS) {
+            val practice: PracticeViewModel = hiltViewModel()
             SettingsScreen(
                 vm = hiltViewModel(),
                 onBack = back, onHome = home, onHelp = { help("settings") },
                 onAi = { nav.navigate(Routes.AI_SETTINGS) },
+                extraSections = listOf { PracticeSettingsSection(practice) },
             )
+        }
+        composable(Routes.HELP_INDEX) {
+            HelpIndexScreen(
+                vm = hiltViewModel(),
+                practice = hiltViewModel(),
+                onBack = back, onHome = home,
+                onTopic = help,
+                onOpenDocuments = { nav.navigate(Routes.LIBRARY) { popUpTo(Routes.HELP_INDEX) { inclusive = true } } },
+            )
+        }
+        composable(Routes.HELP) {
+            val practice: PracticeViewModel = hiltViewModel()
+            HelpScreen(
+                vm = hiltViewModel(),
+                onBack = back, onHome = home,
+                onPractice = { practice.add { nav.goHome() } },
+            )
+            if (practice.busy) BusyOverlay(stringResource(R.string.export_saving))
         }
     }
 }
