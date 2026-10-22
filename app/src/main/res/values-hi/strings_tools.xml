@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tool_merge">दस्तावेज़ जोड़ें</string>
+    <string name="tool_split">दस्तावेज़ अलग करें</string>
+    <string name="tool_remove">पेज हटाएँ</string>
+    <string name="tool_add">पेज डालें</string>
+    <string name="tool_reorder">पेज का क्रम बदलें</string>
+</resources>

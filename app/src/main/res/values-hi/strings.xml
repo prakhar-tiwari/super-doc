@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">सुपर डॉक</string>
+
+    <string name="action_back">पीछे</string>
+    <string name="action_home">होम</string>
+    <string name="action_help">मदद</string>
+    <string name="action_settings">सेटिंग</string>
+    <string name="action_ok">ठीक है, समझ गया</string>
+    <string name="action_cancel">रद्द करें</string>
+    <string name="action_continue">आगे बढ़ें</string>
+    <string name="action_no_go_back">नहीं, वापस जाएँ</string>
+    <string name="action_undo">वापस लाएँ</string>
+    <string name="action_save">सेव करें</string>
+
+    <string name="name_prefix_note">नोट</string>
+    <string name="name_prefix_scan">स्कैन</string>
+    <string name="name_prefix_document">दस्तावेज़</string>
+    <string name="name_prefix_word">वर्ड फ़ाइल</string>
+    <string name="name_prefix_merged">जोड़ा गया</string>
+    <string name="name_prefix_part">भाग</string>
+
+    <string name="type_note">नोट</string>
+    <string name="type_pdf">दस्तावेज़ (PDF)</string>
+    <string name="type_word">वर्ड फ़ाइल</string>
+    <string name="pages_one">1 पेज</string>
+    <string name="pages_many">%1$d पेज</string>
+    <string name="practice_badge">अभ्यास</string>
+
+    <string name="home_question">आप क्या करना चाहते हैं?</string>
+    <string name="home_write_note">नोट लिखें</string>
+    <string name="home_scan">फ़ोटो से दस्तावेज़</string>
+    <string name="home_my_documents">मेरे दस्तावेज़</string>
+    <string name="home_help">मदद</string>
+    <string name="home_more_tools">और टूल</string>
+    <string name="home_more_tools_sub">पेज जोड़ें, अलग करें, हटाएँ या नए पेज डालें</string>
+    <string name="home_recent">हाल ही में इस्तेमाल किए</string>
+    <string name="tour_offer_title">स्वागत है!</string>
+    <string name="tour_offer_message">क्या आप एक छोटा सा परिचय देखना चाहेंगे? इसमें एक-एक कदम करके बताया गया है कि ऐप कैसे इस्तेमाल करें।</string>
+    <string name="tour_offer_yes">हाँ, दिखाइए</string>
+    <string name="tour_offer_no">नहीं, बाद में</string>
+
+    <string name="voice_speak">बोलकर लिखें</string>
+    <string name="voice_speak_name">नाम बोलें</string>
+    <string name="voice_stop">सुनना बंद करें</string>
+    <string name="voice_listening">सुन रहा हूँ… अब बोलिए।</string>
+    <string name="voice_error_title">बोलकर लिखना</string>
+    <string name="voice_error_no_match">आवाज़ साफ़ सुनाई नहीं दी। कृपया बटन दबाकर फिर से थोड़ा धीरे बोलें।</string>
+    <string name="voice_error_permission">ऐप को माइक इस्तेमाल करने की अनुमति चाहिए। कृपया बटन फिर दबाएँ और “Allow / अनुमति दें” चुनें।</string>
+    <string name="voice_error_busy">माइक अभी व्यस्त है। थोड़ी देर रुककर फिर कोशिश करें।</string>
+    <string name="voice_error_offline_pack">इस फ़ोन में इस भाषा के लिए बोलकर लिखना डाउनलोड नहीं है। किसी से कहें कि सेटिंग › वॉइस टाइपिंग (Google) › ऑफ़लाइन स्पीच रिकग्निशन में जाकर हिन्दी और अंग्रेज़ी डाउनलोड कर दें।</string>
+    <string name="voice_error_network">बोलकर लिखना जुड़ नहीं पाया। कृपया फिर कोशिश करें।</string>
+    <string name="voice_error_generic">बोलकर लिखना रुक गया। कृपया फिर कोशिश करें।</string>
+    <string name="voice_error_not_available">इस फ़ोन में बोलकर लिखने की सुविधा नहीं है।</string>
+    <string name="permission_mic_title">माइक इस्तेमाल करें?</string>
+    <string name="permission_mic_message">बोलकर लिखने के लिए ऐप को माइक चाहिए। आपकी आवाज़ इसी फ़ोन में रहती है। अगली स्क्रीन पर “Allow / अनुमति दें” दबाएँ।</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tool_merge">Join documents</string>
+    <string name="tool_split">Split a document</string>
+    <string name="tool_remove">Remove pages</string>
+    <string name="tool_add">Add pages</string>
+    <string name="tool_reorder">Change page order</string>
+</resources>

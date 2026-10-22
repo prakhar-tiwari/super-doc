@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Super Doc</string>
+
+    <!-- Common actions -->
+    <string name="action_back">Back</string>
+    <string name="action_home">Home</string>
+    <string name="action_help">Help</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_ok">OK, understood</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_continue">Continue</string>
+    <string name="action_no_go_back">No, go back</string>
+    <string name="action_undo">UNDO</string>
+    <string name="action_save">Save</string>
+
+    <!-- Name prefixes for automatic names -->
+    <string name="name_prefix_note">Note</string>
+    <string name="name_prefix_scan">Scan</string>
+    <string name="name_prefix_document">Document</string>
+    <string name="name_prefix_word">Word file</string>
+    <string name="name_prefix_merged">Joined</string>
+    <string name="name_prefix_part">Part</string>
+
+    <!-- Types -->
+    <string name="type_note">Note</string>
+    <string name="type_pdf">Document (PDF)</string>
+    <string name="type_word">Word file</string>
+    <string name="pages_one">1 page</string>
+    <string name="pages_many">%1$d pages</string>
+    <string name="practice_badge">Practice</string>
+
+    <!-- Home -->
+    <string name="home_question">What would you like to do?</string>
+    <string name="home_write_note">Write a Note</string>
+    <string name="home_scan">Photo to Document</string>
+    <string name="home_my_documents">My Documents</string>
+    <string name="home_help">Help</string>
+    <string name="home_more_tools">More Tools</string>
+    <string name="home_more_tools_sub">Join, split, remove or add pages</string>
+    <string name="home_recent">Recently used</string>
+    <string name="tour_offer_title">Welcome!</string>
+    <string name="tour_offer_message">Would you like a short guided tour? It shows, step by step, how to use this app.</string>
+    <string name="tour_offer_yes">Yes, show me</string>
+    <string name="tour_offer_no">No, maybe later</string>
+
+    <!-- Voice -->
+    <string name="voice_speak">Speak to type</string>
+    <string name="voice_speak_name">Speak the name</string>
+    <string name="voice_stop">Stop listening</string>
+    <string name="voice_listening">Listening… please speak now.</string>
+    <string name="voice_error_title">Voice typing</string>
+    <string name="voice_error_no_match">I could not hear clearly. Please tap the button and speak again, a little slowly.</string>
+    <string name="voice_error_permission">The app needs permission to use the microphone. Please tap the button again and choose “Allow”.</string>
+    <string name="voice_error_busy">The microphone is busy. Please wait a moment and try again.</string>
+    <string name="voice_error_offline_pack">Voice typing for this language is not downloaded on this phone. Ask someone to open Settings › Voice typing (Google) › Offline speech recognition and download Hindi and English.</string>
+    <string name="voice_error_network">Voice typing could not connect. Please try again.</string>
+    <string name="voice_error_generic">Voice typing stopped. Please try again.</string>
+    <string name="voice_error_not_available">Voice typing is not available on this phone.</string>
+    <string name="permission_mic_title">Use the microphone?</string>
+    <string name="permission_mic_message">To type with your voice, the app needs to use the microphone. Your voice stays on this phone. On the next screen, please tap “Allow”.</string>
+</resources>
