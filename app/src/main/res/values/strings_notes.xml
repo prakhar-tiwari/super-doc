@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_rename">Rename</string>
+    <string name="action_delete">Delete</string>
+
+    <!-- Note editor -->
+    <string name="note_placeholder">Tap here and start writing. Or press “Speak to type” below and speak.</string>
+    <string name="note_saved">Saved automatically</string>
+    <string name="note_saving">Saving…</string>
+    <string name="note_done_typing">Done typing (hide keyboard)</string>
+    <string name="note_voice_language">Language for speaking:</string>
+    <string name="note_read_aloud">Read aloud</string>
+    <string name="note_stop_reading">Stop reading</string>
+    <string name="note_copy_all">Copy all text</string>
+    <string name="note_copied">Text copied. To paste it in another app, press and hold where you want the text, then tap “Paste”.</string>
+    <string name="note_send">Send</string>
+    <string name="note_make_document">Make PDF or Word file</string>
+    <string name="note_ai_helper">AI helper: fix or format text</string>
+    <string name="note_delete">Delete this note</string>
+    <string name="note_delete_title">Delete this note?</string>
+    <string name="note_empty_nothing_to_do">The note is empty. Please write something first.</string>
+    <string name="rename_title">Change the name</string>
+    <string name="rename_label">New name</string>
+    <string name="tts_missing_title">Voice not installed</string>
+    <string name="tts_missing_message">This phone does not have a reading voice for this language yet. Tap “Install voice” and download Hindi (India) or English (India).</string>
+    <string name="tts_install">Install voice</string>
+
+    <!-- Delete / recycle bin -->
+    <string name="delete_title">Delete “%1$s”?</string>
+    <string name="delete_message_recycle">It will go to the Recycle Bin. You can bring it back from there for 30 days.</string>
+    <string name="delete_yes">Yes, delete</string>
+    <string name="moved_to_recycle_bin">Moved to the Recycle Bin.</string>
+    <string name="recycle_bin_open">Open Recycle Bin (deleted items)</string>
+    <string name="recycle_bin_title">Recycle Bin</string>
+    <string name="recycle_bin_info">Deleted items stay here for %1$d days. Tap “Bring back” to restore one.</string>
+    <string name="recycle_bin_empty">The Recycle Bin is empty.</string>
+    <string name="recycle_restore">Bring back</string>
+    <string name="recycle_restored">Brought back to My Documents.</string>
+    <string name="recycle_delete_forever">Delete forever</string>
+    <string name="recycle_delete_forever_title">Delete forever?</string>
+    <string name="recycle_delete_forever_message">“%1$s” will be removed for ever. This cannot be undone.</string>
+    <string name="recycle_empty_all">Empty the Recycle Bin</string>
+    <string name="recycle_empty_all_message">Everything in the Recycle Bin will be removed for ever. This cannot be undone.</string>
+
+    <!-- Library -->
+    <string name="library_search_hint">Search by name or words</string>
+    <string name="library_speak_search">Speak to search</string>
+    <string name="library_clear_search">Clear search</string>
+    <string name="library_empty">Nothing here yet. Go Home and tap “Write a Note” or “Photo to Document”.</string>
+    <string name="library_no_results">Nothing found for “%1$s”. Try a different word.</string>
+    <string name="filter_all">All</string>
+    <string name="filter_notes">Notes</string>
+    <string name="filter_documents">Documents</string>
+
+    <!-- Sending -->
+    <string name="send_how_title">How do you want to send?</string>
+    <string name="send_to_family">Send to %1$s on WhatsApp</string>
+    <string name="send_whatsapp">Send on WhatsApp</string>
+    <string name="send_whatsapp_text">Send text on WhatsApp</string>
+    <string name="send_other_app">Send using another app</string>
+    <string name="send_other_app_text">Send text using another app</string>
+    <string name="send_as_pdf">Send as a PDF document</string>
+    <string name="send_failed">Could not open WhatsApp. Please use “Send using another app”.</string>
+    <string name="share_chooser_title">Send using</string>
+</resources>

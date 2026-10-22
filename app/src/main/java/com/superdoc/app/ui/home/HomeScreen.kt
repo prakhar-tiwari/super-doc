@@ -143,6 +143,7 @@ fun HomeScreen(vm: HomeViewModel, actions: HomeActions) {
             dismissText = stringResource(R.string.tour_offer_no),
             onConfirm = { vm.tourOffered(); actions.startTour() },
             onDismiss = { vm.tourOffered() },
+            closeOnlyWithButtons = true,
         )
     }
 }

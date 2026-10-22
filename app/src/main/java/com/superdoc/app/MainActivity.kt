@@ -1,7 +1,10 @@
 package com.superdoc.app
 
+import android.graphics.Color
 import android.os.Bundle
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
@@ -20,6 +23,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
+            navigationBarStyle = SystemBarStyle.light(BACKGROUND, BACKGROUND),
+        )
         setContent {
             val settings by settingsRepository.settings.collectAsState(initial = null)
             settings?.let { loaded ->
@@ -30,5 +37,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private companion object {
+        const val BACKGROUND = 0xFFFFFBF5.toInt()
     }
 }

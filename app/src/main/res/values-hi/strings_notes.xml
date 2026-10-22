@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_rename">नाम बदलें</string>
+    <string name="action_delete">हटाएँ</string>
+
+    <string name="note_placeholder">यहाँ छूकर लिखना शुरू करें। या नीचे “बोलकर लिखें” दबाकर बोलें।</string>
+    <string name="note_saved">अपने आप सेव हो गया</string>
+    <string name="note_saving">सेव हो रहा है…</string>
+    <string name="note_done_typing">लिखना हो गया (कीबोर्ड छुपाएँ)</string>
+    <string name="note_voice_language">बोलने की भाषा:</string>
+    <string name="note_read_aloud">पढ़कर सुनाएँ</string>
+    <string name="note_stop_reading">सुनाना बंद करें</string>
+    <string name="note_copy_all">पूरा लेख कॉपी करें</string>
+    <string name="note_copied">लेख कॉपी हो गया। दूसरे ऐप में चिपकाने के लिए, जहाँ लिखना है वहाँ उँगली दबाकर रखें, फिर “Paste / चिपकाएँ” दबाएँ।</string>
+    <string name="note_send">भेजें</string>
+    <string name="note_make_document">PDF या वर्ड फ़ाइल बनाएँ</string>
+    <string name="note_ai_helper">AI सहायक: लेख सुधारें या सजाएँ</string>
+    <string name="note_delete">यह नोट हटाएँ</string>
+    <string name="note_delete_title">यह नोट हटाएँ?</string>
+    <string name="note_empty_nothing_to_do">नोट खाली है। पहले कुछ लिखें।</string>
+    <string name="rename_title">नाम बदलें</string>
+    <string name="rename_label">नया नाम</string>
+    <string name="tts_missing_title">आवाज़ इंस्टॉल नहीं है</string>
+    <string name="tts_missing_message">इस फ़ोन में अभी इस भाषा में पढ़ने वाली आवाज़ नहीं है। “आवाज़ इंस्टॉल करें” दबाएँ और हिन्दी (भारत) या English (India) डाउनलोड करें।</string>
+    <string name="tts_install">आवाज़ इंस्टॉल करें</string>
+
+    <string name="delete_title">“%1$s” हटाएँ?</string>
+    <string name="delete_message_recycle">यह रीसायकल बिन में चला जाएगा। 30 दिन तक आप इसे वहाँ से वापस ला सकते हैं।</string>
+    <string name="delete_yes">हाँ, हटाएँ</string>
+    <string name="moved_to_recycle_bin">रीसायकल बिन में भेज दिया।</string>
+    <string name="recycle_bin_open">रीसायकल बिन खोलें (हटाई गई चीज़ें)</string>
+    <string name="recycle_bin_title">रीसायकल बिन</string>
+    <string name="recycle_bin_info">हटाई गई चीज़ें यहाँ %1$d दिन तक रहती हैं। वापस लाने के लिए “वापस लाएँ” दबाएँ।</string>
+    <string name="recycle_bin_empty">रीसायकल बिन खाली है।</string>
+    <string name="recycle_restore">वापस लाएँ</string>
+    <string name="recycle_restored">मेरे दस्तावेज़ में वापस आ गया।</string>
+    <string name="recycle_delete_forever">हमेशा के लिए हटाएँ</string>
+    <string name="recycle_delete_forever_title">हमेशा के लिए हटाएँ?</string>
+    <string name="recycle_delete_forever_message">“%1$s” हमेशा के लिए हट जाएगा। इसे वापस नहीं लाया जा सकता।</string>
+    <string name="recycle_empty_all">रीसायकल बिन खाली करें</string>
+    <string name="recycle_empty_all_message">रीसायकल बिन की सब चीज़ें हमेशा के लिए हट जाएँगी। इसे वापस नहीं लाया जा सकता।</string>
+
+    <string name="library_search_hint">नाम या शब्द से खोजें</string>
+    <string name="library_speak_search">बोलकर खोजें</string>
+    <string name="library_clear_search">खोज साफ़ करें</string>
+    <string name="library_empty">अभी यहाँ कुछ नहीं है। होम पर जाकर “नोट लिखें” या “फ़ोटो से दस्तावेज़” दबाएँ।</string>
+    <string name="library_no_results">“%1$s” से कुछ नहीं मिला। कोई दूसरा शब्द आज़माएँ।</string>
+    <string name="filter_all">सभी</string>
+    <string name="filter_notes">नोट</string>
+    <string name="filter_documents">दस्तावेज़</string>
+
+    <string name="send_how_title">कैसे भेजना है?</string>
+    <string name="send_to_family">%1$s को WhatsApp पर भेजें</string>
+    <string name="send_whatsapp">WhatsApp पर भेजें</string>
+    <string name="send_whatsapp_text">लेख WhatsApp पर भेजें</string>
+    <string name="send_other_app">किसी और ऐप से भेजें</string>
+    <string name="send_other_app_text">लेख किसी और ऐप से भेजें</string>
+    <string name="send_as_pdf">PDF दस्तावेज़ बनाकर भेजें</string>
+    <string name="send_failed">WhatsApp नहीं खुल पाया। कृपया “किसी और ऐप से भेजें” इस्तेमाल करें।</string>
+    <string name="share_chooser_title">इससे भेजें</string>
+</resources>

@@ -1,5 +1,9 @@
 package com.superdoc.app.ui.language
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.windowInsetsTopHeight
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -38,8 +42,8 @@ class LanguageViewModel @Inject constructor(private val settings: SettingsReposi
     fun choose(tag: String, onDone: () -> Unit) {
         viewModelScope.launch {
             settings.setLanguageChosen()
-            onDone()
             AppLocale.set(tag)
+            onDone()
         }
     }
 }
@@ -47,6 +51,12 @@ class LanguageViewModel @Inject constructor(private val settings: SettingsReposi
 /** First screen ever shown. Both labels are written in their own language so either reader understands. */
 @Composable
 fun LanguageScreen(onChoose: (String) -> Unit) {
+    Spacer(
+        Modifier
+            .fillMaxWidth()
+            .windowInsetsTopHeight(WindowInsets.statusBars)
+            .background(SeniorColors.PrimaryDark)
+    )
     Column(
         Modifier
             .fillMaxSize()

@@ -45,9 +45,11 @@ fun ConfirmDialog(
     onDismiss: () -> Unit,
     destructive: Boolean = false,
     dismissText: String = stringResource(R.string.action_no_go_back),
+    closeOnlyWithButtons: Boolean = false,
 ) {
     AlertDialog(
-        onDismissRequest = onDismiss,
+        onDismissRequest = if (closeOnlyWithButtons) ({}) else onDismiss,
+        properties = DialogProperties(dismissOnBackPress = !closeOnlyWithButtons, dismissOnClickOutside = !closeOnlyWithButtons),
         title = { Text(title, style = MaterialTheme.typography.headlineSmall) },
         text = { Text(message, style = MaterialTheme.typography.bodyLarge) },
         confirmButton = {
