@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scan_intro_title">फ़ोटो से दस्तावेज़ बनाएँ</string>
+    <string name="scan_step_1">कैमरा खुलेगा। फ़ोन को काग़ज़ के ऊपर पकड़ें।</string>
+    <string name="scan_step_2">फ़ोटो लेने के लिए बड़ा गोल बटन दबाएँ। किनारे अपने आप पहचान लिए जाते हैं।</string>
+    <string name="scan_step_3">और पेज के लिए, इसी तरह और फ़ोटो लें।</string>
+    <string name="scan_step_4">सब पेज हो जाएँ तो “Done / हो गया” (या “Save”) दबाएँ। दस्तावेज़ अपने आप यहाँ सेव हो जाएगा।</string>
+    <string name="scan_open_camera">कैमरा खोलें</string>
+    <string name="scan_from_gallery">फ़ोन में पहले से रखी फ़ोटो लें</string>
+    <string name="scan_saving">आपका दस्तावेज़ सेव हो रहा है… कृपया रुकें।</string>
+    <string name="scan_failed_title">सेव नहीं हो पाया</string>
+    <string name="scan_failed_message">दस्तावेज़ सेव करते समय कुछ गड़बड़ हुई। कृपया फिर कोशिश करें।</string>
+
+    <string name="viewer_previous">पिछला</string>
+    <string name="viewer_next">अगला</string>
+    <string name="viewer_page_of">पेज %1$d / %2$d</string>
+    <string name="viewer_page_number">पेज %1$d</string>
+    <string name="viewer_bigger">बड़ा करें</string>
+    <string name="viewer_smaller">छोटा करें</string>
+    <string name="viewer_more_options">और विकल्प</string>
+    <string name="viewer_read_page">पेज %1$d पढ़कर सुनाएँ</string>
+    <string name="viewer_reading_page">पेज पढ़ा जा रहा है… कृपया रुकें।</string>
+    <string name="viewer_no_text_found">इस पेज पर कोई छपा हुआ लेख नहीं मिला।</string>
+    <string name="viewer_save_copy">फ़ोन में एक कॉपी सेव करें</string>
+    <string name="viewer_save_copy_explain">एक कॉपी फ़ोन के “Download/%1$s” फ़ोल्डर में सेव होगी, ताकि दूसरे ऐप भी इसे ढूँढ सकें।</string>
+    <string name="viewer_saving_copy">कॉपी सेव हो रही है… कृपया रुकें।</string>
+    <string name="viewer_saved_copy">सेव हो गया। यहाँ मिलेगा: %1$s</string>
+    <string name="viewer_save_copy_failed">कॉपी सेव नहीं हो पाई। कृपया फिर कोशिश करें।</string>
+    <string name="viewer_delete">यह दस्तावेज़ हटाएँ</string>
+    <string name="viewer_word_explain">यह एक वर्ड फ़ाइल है। इसे यहाँ नहीं दिखाया जा सकता, पर आप इसे भेज सकते हैं, या Google Docs जैसे किसी दूसरे ऐप में खोल सकते हैं।</string>
+    <string name="viewer_open_other_app">दूसरे ऐप में खोलें</string>
+    <string name="viewer_no_word_app">इस फ़ोन में वर्ड फ़ाइल खोलने वाला कोई ऐप नहीं है। फिर भी आप इसे किसी को भेज सकते हैं।</string>
+    <string name="pdf_locked">इस दस्तावेज़ पर पासवर्ड लगा है, इसलिए इसके पेज बदले नहीं जा सकते।</string>
+
+    <string name="settings_language">भाषा / Language</string>
+    <string name="settings_text_size">अक्षरों का आकार</string>
+    <string name="settings_text_normal">सामान्य</string>
+    <string name="settings_text_large">बड़ा</string>
+    <string name="settings_text_extra_large">बहुत बड़ा</string>
+    <string name="settings_text_size_sample">अक्षर इतने बड़े दिखेंगे।</string>
+    <string name="settings_family">परिवार के सहायक</string>
+    <string name="settings_family_explain">किसी एक व्यक्ति को सेव करें (जैसे बेटा या बेटी)। फिर “उन्हें भेजें” बस एक बटन होगा, और मदद में उन्हें फ़ोन करने का बटन दिखेगा।</string>
+    <string name="settings_family_add">परिवार के सहायक जोड़ें</string>
+    <string name="settings_family_change">बदलें</string>
+    <string name="settings_family_call">%1$s को फ़ोन करें</string>
+    <string name="settings_family_remove">सहायक हटाएँ</string>
+    <string name="settings_family_name">नाम (जैसे: राहुल)</string>
+    <string name="settings_family_phone">WhatsApp मोबाइल नंबर</string>
+    <string name="settings_signature">पत्रों के लिए आपका नाम</string>
+    <string name="settings_signature_explain">नोट से बनाए गए पत्र और आवेदन के आख़िर में लिखा जाएगा।</string>
+    <string name="settings_signature_set">अपना नाम लिखें</string>
+    <string name="settings_signature_label">आपका पूरा नाम</string>
+    <string name="settings_ai">AI सहायक (बिना इंटरनेट के)</string>
+    <string name="settings_ai_explain">एक वैकल्पिक सहायक जो वर्तनी ठीक कर सकता है और आपके नोट को साफ़-सुथरा बना सकता है। यह सिर्फ़ इसी फ़ोन में चलता है।</string>
+    <string name="settings_ai_open">AI सहायक चालू करें</string>
+    <string name="settings_simple_mode">सरल होम स्क्रीन</string>
+    <string name="settings_simple_mode_explain">सिर्फ़ मुख्य बटन दिखते हैं। पेज वाले टूल “और टूल” के अंदर हैं।</string>
+    <string name="settings_voice_offline">मेरी आवाज़ इसी फ़ोन में रहे</string>
+    <string name="settings_voice_offline_explain">बोलकर लिखना बिना इंटरनेट चलता है। इसके लिए हिन्दी/अंग्रेज़ी ऑफ़लाइन वॉइस पैक चाहिए।</string>
+    <string name="settings_on">चालू</string>
+    <string name="settings_off">बंद</string>
+</resources>

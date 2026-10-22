@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Scanning -->
+    <string name="scan_intro_title">Make a document from photos</string>
+    <string name="scan_step_1">The camera will open. Hold the phone above the paper.</string>
+    <string name="scan_step_2">Press the big round button to take a photo. The edges are found automatically.</string>
+    <string name="scan_step_3">For more pages, take more photos the same way.</string>
+    <string name="scan_step_4">When all pages are done, press “Done” (or “Save”). The document is saved here by itself.</string>
+    <string name="scan_open_camera">Open camera</string>
+    <string name="scan_from_gallery">Use photos already on the phone</string>
+    <string name="scan_saving">Saving your document… please wait.</string>
+    <string name="scan_failed_title">Could not save</string>
+    <string name="scan_failed_message">Something went wrong while saving the document. Please try again.</string>
+
+    <!-- Viewer -->
+    <string name="viewer_previous">Previous</string>
+    <string name="viewer_next">Next</string>
+    <string name="viewer_page_of">Page %1$d of %2$d</string>
+    <string name="viewer_page_number">Page %1$d</string>
+    <string name="viewer_bigger">Bigger</string>
+    <string name="viewer_smaller">Smaller</string>
+    <string name="viewer_more_options">More options</string>
+    <string name="viewer_read_page">Read page %1$d aloud</string>
+    <string name="viewer_reading_page">Reading the page… please wait.</string>
+    <string name="viewer_no_text_found">No printed text was found on this page.</string>
+    <string name="viewer_save_copy">Save a copy to phone</string>
+    <string name="viewer_save_copy_explain">A copy will be saved in the phone’s “Download/%1$s” folder, so other apps can find it too.</string>
+    <string name="viewer_saving_copy">Saving a copy… please wait.</string>
+    <string name="viewer_saved_copy">Saved. You can find it in: %1$s</string>
+    <string name="viewer_save_copy_failed">Could not save the copy. Please try again.</string>
+    <string name="viewer_delete">Delete this document</string>
+    <string name="viewer_word_explain">This is a Word file. It can’t be shown here, but you can send it, or open it with another app such as Google Docs.</string>
+    <string name="viewer_open_other_app">Open with another app</string>
+    <string name="viewer_no_word_app">No app on this phone can open Word files. You can still send it to someone.</string>
+    <string name="pdf_locked">This document is locked with a password, so its pages cannot be changed.</string>
+
+    <!-- Settings -->
+    <string name="settings_language">Language / भाषा</string>
+    <string name="settings_text_size">Text size</string>
+    <string name="settings_text_normal">Normal</string>
+    <string name="settings_text_large">Large</string>
+    <string name="settings_text_extra_large">Very large</string>
+    <string name="settings_text_size_sample">This is how big the text will look.</string>
+    <string name="settings_family">Family helper</string>
+    <string name="settings_family_explain">Save one person (for example your son or daughter). Then “Send to them” is just one tap, and Help shows a button to call them.</string>
+    <string name="settings_family_add">Add a family helper</string>
+    <string name="settings_family_change">Change</string>
+    <string name="settings_family_call">Call %1$s</string>
+    <string name="settings_family_remove">Remove family helper</string>
+    <string name="settings_family_name">Name (for example: Rahul)</string>
+    <string name="settings_family_phone">WhatsApp mobile number</string>
+    <string name="settings_signature">Your name for letters</string>
+    <string name="settings_signature_explain">Used at the end of letters and applications you make from notes.</string>
+    <string name="settings_signature_set">Set your name</string>
+    <string name="settings_signature_label">Your full name</string>
+    <string name="settings_ai">AI helper (works without internet)</string>
+    <string name="settings_ai_explain">An optional helper that can fix spelling and arrange your notes neatly. It runs only on this phone.</string>
+    <string name="settings_ai_open">Set up the AI helper</string>
+    <string name="settings_simple_mode">Simple Home screen</string>
+    <string name="settings_simple_mode_explain">Shows only the main buttons. Page tools are inside “More Tools”.</string>
+    <string name="settings_voice_offline">Keep my voice on this phone</string>
+    <string name="settings_voice_offline_explain">Voice typing works without internet. Needs the Hindi/English offline voice pack.</string>
+    <string name="settings_on">ON</string>
+    <string name="settings_off">OFF</string>
+</resources>

@@ -16,6 +16,11 @@ import com.superdoc.app.ui.library.LibraryScreen
 import com.superdoc.app.ui.library.RecycleBinScreen
 import com.superdoc.app.ui.note.NoteActions
 import com.superdoc.app.ui.note.NoteScreen
+import com.superdoc.app.ui.scan.rememberScanFlow
+import com.superdoc.app.ui.settings.SettingsScreen
+import com.superdoc.app.ui.viewer.ViewerActions
+import com.superdoc.app.ui.viewer.ViewerScreen
+import com.superdoc.app.ui.viewer.ViewerViewModel
 
 @Composable
 fun AppNavHost(startAtLanguage: Boolean, nav: NavHostController = rememberNavController()) {
@@ -32,11 +37,12 @@ fun AppNavHost(startAtLanguage: Boolean, nav: NavHostController = rememberNavCon
             LanguageScreen(onChoose = { tag -> vm.choose(tag) { nav.goHome() } })
         }
         composable(Routes.HOME) {
+            val scan = rememberScanFlow { id -> nav.navigate(Routes.viewer(id)) }
             HomeScreen(
                 vm = hiltViewModel(),
                 actions = HomeActions(
                     newNote = { nav.navigate(Routes.note()) },
-                    scan = {},
+                    scan = scan,
                     library = { nav.navigate(Routes.LIBRARY) },
                     help = { nav.navigate(Routes.HELP_INDEX) },
                     tools = { nav.navigate(Routes.TOOLS) },
@@ -69,6 +75,25 @@ fun AppNavHost(startAtLanguage: Boolean, nav: NavHostController = rememberNavCon
         }
         composable(Routes.RECYCLE_BIN) {
             RecycleBinScreen(vm = hiltViewModel(), onBack = back, onHome = home, onHelp = { help("library") })
+        }
+        composable(Routes.VIEWER) {
+            val vm: ViewerViewModel = hiltViewModel()
+            ViewerScreen(
+                vm = vm,
+                actions = ViewerActions(
+                    back = back, home = home, help = { help("viewer") },
+                    pages = { mode -> nav.navigate(Routes.pages(vm.id, mode)) },
+                    split = { nav.navigate(Routes.split(vm.id)) },
+                    deleted = back,
+                ),
+            )
+        }
+        composable(Routes.SETTINGS) {
+            SettingsScreen(
+                vm = hiltViewModel(),
+                onBack = back, onHome = home, onHelp = { help("settings") },
+                onAi = { nav.navigate(Routes.AI_SETTINGS) },
+            )
         }
     }
 }
