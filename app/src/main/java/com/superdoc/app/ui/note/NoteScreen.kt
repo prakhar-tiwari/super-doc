@@ -1,5 +1,14 @@
 package com.superdoc.app.ui.note
 
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.TextLayoutResult
+import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import com.superdoc.app.ui.LocalSettings
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -35,7 +44,6 @@ import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
@@ -98,7 +106,7 @@ class NoteAiHost(
 /** Slot for the AI helper panel; keeps this screen independent of the AI feature. */
 typealias AiPanelSlot = @Composable (NoteAiHost) -> Unit
 
-@OptIn(ExperimentalLayoutApi::class)
+@OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun NoteScreen(vm: NoteViewModel, actions: NoteActions, aiPanel: AiPanelSlot? = null) {
     val context = LocalContext.current
@@ -144,15 +152,36 @@ fun NoteScreen(vm: NoteViewModel, actions: NoteActions, aiPanel: AiPanelSlot? = 
         ) {
             item?.let { Text(it.title, style = MaterialTheme.typography.titleMedium) }
             SaveIndicator(vm.saveState)
-            OutlinedTextField(
+            val interaction = remember { MutableInteractionSource() }
+            var layout by remember { mutableStateOf<TextLayoutResult?>(null) }
+            val bands = LocalSettings.current.noteColors
+            BasicTextField(
                 value = vm.text,
                 onValueChange = vm::onTextChange,
                 enabled = vm.loaded,
-                textStyle = MaterialTheme.typography.bodyLarge,
-                placeholder = { Text(stringResource(R.string.note_placeholder), style = MaterialTheme.typography.bodyLarge) },
+                textStyle = MaterialTheme.typography.bodyLarge.copy(color = MaterialTheme.colorScheme.onSurface),
+                cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
+                interactionSource = interaction,
+                onTextLayout = { layout = it },
                 modifier = Modifier
                     .fillMaxWidth()
                     .heightIn(min = if (imeVisible) 180.dp else 260.dp),
+                decorationBox = { inner ->
+                    OutlinedTextFieldDefaults.DecorationBox(
+                        value = vm.text.text,
+                        innerTextField = {
+                            Box(Modifier.paragraphBands(vm.text.text, { layout }, bands)) { inner() }
+                        },
+                        enabled = vm.loaded,
+                        singleLine = false,
+                        visualTransformation = VisualTransformation.None,
+                        interactionSource = interaction,
+                        placeholder = { Text(stringResource(R.string.note_placeholder), style = MaterialTheme.typography.bodyLarge) },
+                        container = {
+                            OutlinedTextFieldDefaults.Container(enabled = vm.loaded, isError = false, interactionSource = interaction)
+                        },
+                    )
+                },
             )
 
             if (imeVisible) {

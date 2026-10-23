@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "SuperDoc"
 include(":app")
+include(":gemma_pack")

@@ -31,12 +31,13 @@
       "file": "gemma3-1b-it-int4.task",
       "url": null,
       "sha256": null,
+      "playPack": "gemma_pack",
       "sizeBytes": 554661243,
       "template": "gemma",
       "hindi": true,
       "minRamMb": 2600,
       "maxTokens": 1280,
-      "license": "Gemma Terms of Use (accept on Hugging Face, then import the file)"
+      "license": "Gemma Terms of Use (ai.google.dev/gemma/terms)"
     }
   ]
 }

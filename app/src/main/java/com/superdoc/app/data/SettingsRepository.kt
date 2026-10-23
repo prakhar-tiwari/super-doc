@@ -34,7 +34,10 @@ data class Settings(
     val family: FamilyHelper? = null,
     val voiceOfflineOnly: Boolean = true,
     val activeModelId: String? = null,
+    /** The AI helper is fetched from Play once by itself; after that only when the user asks. */
+    val aiAutoSetupDone: Boolean = false,
     val signatureName: String = "",
+    val noteColors: Boolean = true,
 )
 
 @Singleton
@@ -48,7 +51,9 @@ class SettingsRepository @Inject constructor(@ApplicationContext private val con
         val familyPhone = stringPreferencesKey("family_phone")
         val voiceOfflineOnly = booleanPreferencesKey("voice_offline_only")
         val activeModelId = stringPreferencesKey("active_model_id")
+        val aiAutoSetupDone = booleanPreferencesKey("ai_auto_setup_done")
         val signatureName = stringPreferencesKey("signature_name")
+        val noteColors = booleanPreferencesKey("note_colors")
     }
 
     val settings: Flow<Settings> = context.dataStore.data.map { p ->
@@ -61,7 +66,9 @@ class SettingsRepository @Inject constructor(@ApplicationContext private val con
             family = if (familyPhone.isNullOrBlank()) null else FamilyHelper(p[Keys.familyName].orEmpty(), familyPhone),
             voiceOfflineOnly = p[Keys.voiceOfflineOnly] ?: true,
             activeModelId = p[Keys.activeModelId],
+            aiAutoSetupDone = p[Keys.aiAutoSetupDone] ?: false,
             signatureName = p[Keys.signatureName].orEmpty(),
+            noteColors = p[Keys.noteColors] ?: true,
         )
     }
 
@@ -71,8 +78,11 @@ class SettingsRepository @Inject constructor(@ApplicationContext private val con
     suspend fun setTourOffered() = context.dataStore.edit { it[Keys.tourOffered] = true }
     suspend fun setSimpleMode(on: Boolean) = context.dataStore.edit { it[Keys.simpleMode] = on }
     suspend fun setTextScale(scale: Float) = context.dataStore.edit { it[Keys.textScale] = scale }
+    suspend fun setNoteColors(on: Boolean) = context.dataStore.edit { it[Keys.noteColors] = on }
     suspend fun setVoiceOfflineOnly(on: Boolean) = context.dataStore.edit { it[Keys.voiceOfflineOnly] = on }
     suspend fun setSignatureName(name: String) = context.dataStore.edit { it[Keys.signatureName] = name.trim() }
+
+    suspend fun setAiAutoSetupDone() = context.dataStore.edit { it[Keys.aiAutoSetupDone] = true }
 
     suspend fun setActiveModel(id: String?) = context.dataStore.edit {
         if (id == null) it.remove(Keys.activeModelId) else it[Keys.activeModelId] = id

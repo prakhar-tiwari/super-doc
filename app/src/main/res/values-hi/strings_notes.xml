@@ -58,4 +58,6 @@
     <string name="send_as_pdf">PDF दस्तावेज़ बनाकर भेजें</string>
     <string name="send_failed">WhatsApp नहीं खुल पाया। कृपया “किसी और ऐप से भेजें” इस्तेमाल करें।</string>
     <string name="share_chooser_title">इससे भेजें</string>
+    <string name="settings_note_colors">हर पैराग्राफ़ का अलग रंग</string>
+    <string name="settings_note_colors_explain">नोट के हर पैराग्राफ़ का हल्का अलग रंग होता है, ताकि पढ़ते समय जगह न खोए। बनाई या भेजी गई फ़ाइलें सादी रहती हैं।</string>
 </resources>

@@ -19,7 +19,7 @@
     <string name="ai_did_you_mean">क्या आप यह चाहते हैं?</string>
     <string name="ai_yes_do_it">हाँ, यही करें</string>
     <string name="ai_no_not_this">नहीं, वापस जाएँ</string>
-    <string name="ai_english_only">यह AI सहायक केवल अंग्रेज़ी जानता है। हिंदी नोट्स के लिए परिवार से AI सेटिंग में “Gemma 3” सहायक जुड़वाएँ।</string>
+    <string name="ai_english_only">यह AI सहायक केवल अंग्रेज़ी जानता है। हिंदी नोट्स के लिए AI सेटिंग खोलें और “Gemma 3” सहायक डाउनलोड करें।</string>
     <string name="ai_languages_en">भाषा: केवल अंग्रेज़ी</string>
     <string name="ai_languages_en_hi">भाषा: अंग्रेज़ी और हिंदी</string>
     <string name="ai_working">आपके नोट पर काम हो रहा है…</string>
@@ -44,6 +44,7 @@
     <string name="ai_phone_ok">इस फ़ोन में %1$s GB मेमोरी है। AI सहायक यहाँ चल सकता है।</string>
     <string name="ai_phone_too_small">इस फ़ोन में %1$s GB मेमोरी है। AI सहायक के लिए यह काफ़ी नहीं है। बाक़ी सब सुविधाएँ चलती रहेंगी।</string>
     <string name="ai_model_size">डाउनलोड का आकार: %1$s</string>
+    <string name="ai_model_license">लाइसेंस: %1$s</string>
     <string name="ai_recommended">इस फ़ोन के लिए सही</string>
     <string name="ai_needs_more_memory">ज़्यादा मेमोरी वाला फ़ोन चाहिए</string>
     <string name="ai_ready">तैयार</string>
@@ -74,6 +75,9 @@
     <string name="ai_fail_no_space">फ़ोन में जगह कम है। कुछ फ़ोटो या वीडियो हटाकर फिर कोशिश करें।</string>
     <string name="ai_fail_network">डाउनलोड रुक गया। जारी रखने के लिए बटन दबाएँ।</string>
     <string name="ai_fail_checksum">डाउनलोड की गई फ़ाइल ख़राब थी, इसलिए सुरक्षा के लिए हटा दी गई। कृपया फिर से डाउनलोड करें।</string>
+    <string name="ai_fail_play_confirm">सहायक डाउनलोड करने से पहले Google Play को आपकी मंज़ूरी चाहिए।</string>
+    <string name="ai_fail_play_unavailable">यह सहायक Google Play से आता है। इसे पाने के लिए Super Doc को Play Store से इंस्टॉल करें, या नीचे से सहायक फ़ाइल जोड़ें।</string>
+    <string name="ai_play_continue">आगे बढ़ें</string>
     <string name="ai_bench_title">इस फ़ोन पर गति जाँचें</string>
     <string name="ai_bench_explain">एक छोटा नमूना वाक्य ठीक करता है और देखता है कि कितना समय लगा।</string>
     <string name="ai_bench_run">गति जाँच शुरू करें</string>

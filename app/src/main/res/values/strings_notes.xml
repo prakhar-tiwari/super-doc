@@ -62,4 +62,6 @@
     <string name="send_as_pdf">Send as a PDF document</string>
     <string name="send_failed">Could not open WhatsApp. Please use “Send using another app”.</string>
     <string name="share_chooser_title">Send using</string>
+    <string name="settings_note_colors">Colour for each paragraph</string>
+    <string name="settings_note_colors_explain">Each paragraph of a note gets its own soft colour, so it is easier to keep your place. Files you make or send stay plain.</string>
 </resources>

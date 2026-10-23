@@ -54,6 +54,8 @@ android {
         language { enableSplit = false }
     }
 
+    assetPacks += listOf(":gemma_pack")
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -76,6 +78,24 @@ android {
 ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
+
+// A release bundle without the model would ship a Gemma pack that contains nothing.
+val checkGemmaPack by tasks.registering {
+    val catalog = file("src/main/assets/ai/models.json")
+    val assets = rootProject.file("gemma_pack/src/main/assets")
+    inputs.file(catalog)
+    doLast {
+        @Suppress("UNCHECKED_CAST")
+        val models = (groovy.json.JsonSlurper().parse(catalog) as Map<String, Any?>)["models"] as List<Map<String, Any?>>
+        models.filter { it["playPack"] == "gemma_pack" }.forEach { m ->
+            val model = File(assets, m["file"] as String)
+            check(model.isFile) { "Missing ${model.path}. See docs/release/bundled-model.md." }
+            val expected = (m["sizeBytes"] as Number).toLong()
+            check(model.length() == expected) { "${model.name} is ${model.length()} bytes, models.json expects $expected." }
+        }
+    }
+}
+tasks.matching { it.name == "bundleRelease" }.configureEach { dependsOn(checkGemmaPack) }
 
 dependencies {
     implementation(libs.androidx.core.ktx)
@@ -109,6 +129,7 @@ dependencies {
     implementation(libs.mlkit.text.recognition.devanagari)
     implementation(libs.pdfbox.android)
     implementation(libs.mediapipe.genai)
+    implementation(libs.play.asset.delivery)
 
     testImplementation(libs.junit)
     testImplementation(libs.json)

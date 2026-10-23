@@ -55,9 +55,11 @@ Quality probe (`AiQualityProbe`, every action on an English and a Hindi sample):
 
 ## Recommendation for the father's phone
 Gemma 3 1B int4 is the right model for a Hindi-first user: same size as Qwen 0.5B, SentencePiece
-tokenizer handled natively by MediaPipe, and much stronger Hindi. Its licence is gated, so the
-app cannot download it on its own. A family member accepts the Gemma licence on Hugging Face once,
-downloads `gemma3-1b-it-int4.task`, and adds it with "Add a helper file from the phone".
+tokenizer handled natively by MediaPipe, and much stronger Hindi. Hugging Face gates the download,
+but the Gemma Terms of Use allow redistribution (with the licence text, a NOTICE file and the use
+restrictions passed on). So the publisher accepts the licence once and ships the model as a Google
+Play asset pack, which the app requests by itself on phones that can run it — see
+`docs/release/bundled-model.md`. "Add a helper file from the phone" remains for non-Play installs.
 Re-run `AiQualityProbe` with that file before relying on Hindi output.
 
 ## Download safety

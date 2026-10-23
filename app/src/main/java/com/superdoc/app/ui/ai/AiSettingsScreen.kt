@@ -145,6 +145,7 @@ fun AiSettingsScreen(vm: AiSettingsViewModel, onBack: () -> Unit, onHome: () -> 
     var askMobileData by remember { mutableStateOf<ModelInfo?>(null) }
     var askDelete by remember { mutableStateOf<ModelInfo?>(null) }
     val pickFile = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri -> uri?.let(vm::import) }
+    val playDialog = rememberLauncherForActivityResult(ActivityResultContracts.StartIntentSenderForResult()) { }
     val downloading = states.values.any { it is ModelState.Downloading || it is ModelState.Verifying }
     KeepScreenOn(downloading || vm.benchmarking)
 
@@ -169,9 +170,11 @@ fun AiSettingsScreen(vm: AiSettingsViewModel, onBack: () -> Unit, onHome: () -> 
                     fits = vm.device.canRun(model),
                     active = model.id == activeId || (activeId == null && states[model.id] == ModelState.Installed),
                     onDownload = {
-                        if (vm.models.checkBeforeDownload(model, allowMobileData = false) == FailReason.NOT_WIFI) askMobileData = model
+                        // Play asks about mobile data itself, with its own dialog.
+                        if (model.playPack == null && vm.models.checkBeforeDownload(model, allowMobileData = false) == FailReason.NOT_WIFI) askMobileData = model
                         else vm.download(model, allowMobileData = false)
                     },
+                    onAskPlay = { vm.models.askPlayToContinue(playDialog) },
                     onPause = { vm.pause(model) },
                     onUse = { vm.use(model) },
                     onDelete = { askDelete = model },
@@ -243,6 +246,7 @@ private fun ModelCard(
     fits: Boolean,
     active: Boolean,
     onDownload: () -> Unit,
+    onAskPlay: () -> Unit,
     onPause: () -> Unit,
     onUse: () -> Unit,
     onDelete: () -> Unit,
@@ -258,6 +262,7 @@ private fun ModelCard(
             Text(model.name, style = MaterialTheme.typography.titleLarge)
             Text(stringResource(R.string.ai_model_size, sizeLabel(model.sizeBytes)), style = MaterialTheme.typography.bodyMedium)
             Text(stringResource(if (model.hindi) R.string.ai_languages_en_hi else R.string.ai_languages_en), style = MaterialTheme.typography.bodyMedium)
+            if (!model.importOnly) Text(stringResource(R.string.ai_model_license, model.license), style = MaterialTheme.typography.bodySmall)
             when {
                 recommended -> Badge(stringResource(R.string.ai_recommended), SeniorColors.Help)
                 !fits -> Badge(stringResource(R.string.ai_needs_more_memory), SeniorColors.TextMuted)
@@ -287,9 +292,15 @@ private fun ModelCard(
                         Text(stringResource(failMessage(state.reason)), style = MaterialTheme.typography.bodyLarge, color = SeniorColors.Danger)
                     }
                     val partial = (state as? ModelState.NotInstalled)?.partialBytes ?: (state as ModelState.Failed).partialBytes
+                    val playReason = (state as? ModelState.Failed)?.reason?.takeIf { model.playPack != null }
                     when {
                         model.importOnly -> Text(stringResource(R.string.ai_import_only, model.license), style = MaterialTheme.typography.bodyMedium)
                         !fits -> Unit
+                        playReason == FailReason.NOT_WIFI ->
+                            BigOutlinedButton(stringResource(R.string.ai_mobile_yes), onAskPlay, icon = Icons.Filled.Download)
+                        playReason == FailReason.PLAY_CONFIRM ->
+                            BigButton(stringResource(R.string.ai_play_continue), onAskPlay, icon = Icons.Filled.Download, color = SeniorColors.Help)
+                        playReason == FailReason.PLAY_UNAVAILABLE && !model.directDownload -> Unit
                         partial > 0 -> BigButton(
                             stringResource(R.string.ai_continue_download, (partial * 100 / model.sizeBytes).toInt()),
                             onDownload, icon = Icons.Filled.Download, color = SeniorColors.Help,
@@ -351,6 +362,8 @@ private fun failMessage(reason: FailReason): Int = when (reason) {
     FailReason.NETWORK -> R.string.ai_fail_network
     FailReason.CHECKSUM -> R.string.ai_fail_checksum
     FailReason.IMPORT_UNKNOWN -> R.string.ai_import_unknown
+    FailReason.PLAY_CONFIRM -> R.string.ai_fail_play_confirm
+    FailReason.PLAY_UNAVAILABLE -> R.string.ai_fail_play_unavailable
 }
 
 private fun seconds(ms: Long) = String.format(Locale.US, "%.1f", ms / 1000f)

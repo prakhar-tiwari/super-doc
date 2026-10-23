@@ -82,4 +82,14 @@ class AiTextTest {
         val badSha = ok.replace("a".repeat(64), "1234")
         assertThrows(IllegalArgumentException::class.java) { ModelCatalog.parse(badSha) }
     }
+
+    @Test
+    fun `a model in a Play pack is installable without a download address`() {
+        val json = """{"models":[{"id":"g","name":"G","file":"g.task","url":null,"sha256":null,"playPack":"gemma_pack",
+            "sizeBytes":10,"template":"gemma","minRamMb":2600,"hindi":true}]}"""
+        val model = ModelCatalog.parse(json).single()
+        assertEquals("gemma_pack", model.playPack)
+        assertEquals(false, model.importOnly)
+        assertEquals(false, model.directDownload)
+    }
 }

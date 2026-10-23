@@ -34,9 +34,9 @@ class DeviceCapability @Inject constructor(@ApplicationContext private val conte
 
     fun canRun(model: ModelInfo): Boolean = canRunAi && totalRamMb >= model.minRamMb
 
-    /** The best downloadable model that fits this phone. */
+    /** The best installable model that fits this phone; one that knows Hindi wins over a bigger English-only one. */
     fun recommended(models: List<ModelInfo>): ModelInfo? =
-        models.filter { !it.importOnly && canRun(it) }.maxByOrNull { it.minRamMb }
+        models.filter { !it.importOnly && canRun(it) }.maxWithOrNull(compareBy({ it.hindi }, { it.minRamMb }))
 
     fun freeBytes(dir: File): Long = dir.usableSpace
 

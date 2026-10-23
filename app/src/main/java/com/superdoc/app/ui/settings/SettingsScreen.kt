@@ -64,6 +64,7 @@ import javax.inject.Inject
 class SettingsViewModel @Inject constructor(private val settings: SettingsRepository) : ViewModel() {
     fun setTextScale(scale: Float) = viewModelScope.launch { settings.setTextScale(scale) }
     fun setSimpleMode(on: Boolean) = viewModelScope.launch { settings.setSimpleMode(on) }
+    fun setNoteColors(on: Boolean) = viewModelScope.launch { settings.setNoteColors(on) }
     fun setVoiceOfflineOnly(on: Boolean) = viewModelScope.launch { settings.setVoiceOfflineOnly(on) }
     fun setFamily(helper: FamilyHelper?) = viewModelScope.launch { settings.setFamily(helper) }
     fun setSignature(name: String) = viewModelScope.launch { settings.setSignatureName(name) }
@@ -149,6 +150,12 @@ fun SettingsScreen(
                 subtitle = stringResource(R.string.settings_simple_mode_explain),
                 checked = settings.simpleMode,
                 onChange = vm::setSimpleMode,
+            )
+            SwitchRow(
+                title = stringResource(R.string.settings_note_colors),
+                subtitle = stringResource(R.string.settings_note_colors_explain),
+                checked = settings.noteColors,
+                onChange = vm::setNoteColors,
             )
             SwitchRow(
                 title = stringResource(R.string.settings_voice_offline),

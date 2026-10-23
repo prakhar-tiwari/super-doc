@@ -12,3 +12,5 @@ build/
 *.p12
 *.pfx
 __pycache__/
+# The Gemma model (~530 MB) is placed here before a release build; it is never committed.
+/gemma_pack/src/main/assets/*.task

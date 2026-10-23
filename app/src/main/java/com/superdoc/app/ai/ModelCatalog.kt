@@ -26,8 +26,11 @@ data class ModelInfo(
     val license: String,
     /** Whether Hindi actions are offered with this model. Qwen's tokenizer garbles Devanagari under MediaPipe. */
     val hindi: Boolean = false,
+    /** Google Play asset pack that carries this model, so Play downloads it instead of the app. */
+    val playPack: String? = null,
 ) {
-    val importOnly: Boolean get() = url == null || sha256 == null
+    val directDownload: Boolean get() = url != null && sha256 != null
+    val importOnly: Boolean get() = playPack == null && !directDownload
 }
 
 /** The models the app knows about, from assets/ai/models.json. */
@@ -62,6 +65,7 @@ class ModelCatalog @Inject constructor(@ApplicationContext context: Context) {
                     maxTokens = o.optInt("maxTokens", 1280),
                     license = o.optString("license"),
                     hindi = o.optBoolean("hindi", false),
+                    playPack = o.optString("playPack").takeIf { !o.isNull("playPack") && it.isNotBlank() },
                 )
             }
         }

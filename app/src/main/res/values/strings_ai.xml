@@ -20,7 +20,7 @@
     <string name="ai_did_you_mean">Did you mean this?</string>
     <string name="ai_yes_do_it">Yes, do this</string>
     <string name="ai_no_not_this">No, go back</string>
-    <string name="ai_english_only">This AI helper knows only English. For Hindi notes, ask your family to add the “Gemma 3” helper in AI settings.</string>
+    <string name="ai_english_only">This AI helper knows only English. For Hindi notes, open AI settings and download the “Gemma 3” helper.</string>
     <string name="ai_languages_en">Works with: English</string>
     <string name="ai_languages_en_hi">Works with: English and Hindi</string>
     <string name="ai_working">Working on your note…</string>
@@ -46,6 +46,7 @@
     <string name="ai_phone_ok">This phone has %1$s GB memory. The AI helper can work here.</string>
     <string name="ai_phone_too_small">This phone has %1$s GB memory. That is not enough for the AI helper. All other features still work.</string>
     <string name="ai_model_size">Download size: %1$s</string>
+    <string name="ai_model_license">Licence: %1$s</string>
     <string name="ai_recommended">Recommended for this phone</string>
     <string name="ai_needs_more_memory">Needs a phone with more memory</string>
     <string name="ai_ready">Ready</string>
@@ -76,6 +77,9 @@
     <string name="ai_fail_no_space">Not enough free space on the phone. Delete some photos or videos and try again.</string>
     <string name="ai_fail_network">The download stopped. Tap the button to continue.</string>
     <string name="ai_fail_checksum">The downloaded file was damaged, so it was deleted for safety. Please download again.</string>
+    <string name="ai_fail_play_confirm">Google Play needs your OK before it can download the helper.</string>
+    <string name="ai_fail_play_unavailable">This helper comes from Google Play. Install Super Doc from the Play Store to get it, or add the helper file below.</string>
+    <string name="ai_play_continue">Continue</string>
     <string name="ai_bench_title">Test speed on this phone</string>
     <string name="ai_bench_explain">Corrects a short sample sentence and measures how long it takes.</string>
     <string name="ai_bench_run">Start the speed test</string>

@@ -4,6 +4,8 @@ import android.content.Context
 import android.net.Uri
 import android.provider.OpenableColumns
 import android.util.Log
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.IntentSenderRequest
 import com.superdoc.app.data.FileStore
 import com.superdoc.app.data.SettingsRepository
 import com.superdoc.app.di.ApplicationScope
@@ -39,11 +41,11 @@ sealed interface ModelState {
     data class Failed(val reason: FailReason, val partialBytes: Long = 0) : ModelState
 }
 
-enum class FailReason { NO_INTERNET, NOT_WIFI, NO_SPACE, NETWORK, CHECKSUM, IMPORT_UNKNOWN }
+enum class FailReason { NO_INTERNET, NOT_WIFI, NO_SPACE, NETWORK, CHECKSUM, IMPORT_UNKNOWN, PLAY_CONFIRM, PLAY_UNAVAILABLE }
 
 /**
- * Downloads, checks and stores AI models in app-private storage.
- * A download is only accepted if its SHA-256 matches the catalog; otherwise the file is deleted.
+ * Gets, checks and stores AI models. Models in a Play asset pack come from Google Play; others are
+ * downloaded into app-private storage and only accepted if their SHA-256 matches the catalog.
  */
 @Singleton
 class ModelManager @Inject constructor(
@@ -52,6 +54,7 @@ class ModelManager @Inject constructor(
     private val catalog: ModelCatalog,
     private val device: DeviceCapability,
     private val settings: SettingsRepository,
+    private val play: PlayModelDelivery,
     @ApplicationScope private val scope: CoroutineScope,
 ) {
     private val _states = MutableStateFlow<Map<String, ModelState>>(emptyMap())
@@ -60,19 +63,56 @@ class ModelManager @Inject constructor(
 
     init {
         refresh()
+        play.listen { packState ->
+            catalog.models.filter { it.playPack == packState.name() }.forEach { onPlayUpdate(it, PlayModelDelivery.toModelState(packState)) }
+        }
+        scope.launch { restorePlayDownloads(); autoSetup() }
     }
 
-    fun fileFor(model: ModelInfo) = File(files.modelsDir, model.file)
+    /** The pack Play delivered, or else a file downloaded or imported into app storage. */
+    fun fileFor(model: ModelInfo) = play.file(model) ?: localFileFor(model)
+    private fun localFileFor(model: ModelInfo) = File(files.modelsDir, model.file)
     private fun partFor(model: ModelInfo) = File(files.modelsDir, model.file + ".part")
 
     fun refresh() {
         _states.value = catalog.models.associate { m ->
+            val current = _states.value[m.id]
+            val playBusy = m.playPack != null && (current is ModelState.Downloading || current == ModelState.Verifying)
             m.id to when {
-                jobs[m.id]?.isActive == true -> _states.value[m.id] ?: ModelState.NotInstalled()
+                jobs[m.id]?.isActive == true || playBusy -> current ?: ModelState.NotInstalled()
                 fileFor(m).exists() -> ModelState.Installed
+                m.playPack != null && current is ModelState.Failed -> current
                 else -> ModelState.NotInstalled(partFor(m).takeIf { it.exists() }?.length() ?: 0)
             }
         }
+    }
+
+    private fun onPlayUpdate(model: ModelInfo, state: ModelState) {
+        if (state == ModelState.Verifying && fileFor(model).exists()) {
+            set(model, ModelState.Installed)
+            scope.launch { if (settings.current().activeModelId == null) settings.setActiveModel(model.id) }
+        } else if (!(state is ModelState.NotInstalled && fileFor(model).exists())) {
+            set(model, state)
+        }
+    }
+
+    /** Picks up a Play download that was already running before the app was (re)opened. */
+    private suspend fun restorePlayDownloads() {
+        catalog.models.filter { it.playPack != null && !fileFor(it).exists() }.forEach { m ->
+            runCatching { play.state(m.playPack!!) }.getOrNull()?.let { onPlayUpdate(m, PlayModelDelivery.toModelState(it)) }
+        }
+    }
+
+    /**
+     * On first start, asks Play for the recommended helper so nobody has to set it up. Play waits for
+     * Wi-Fi before downloading anything this large, and phones that can't run it never ask.
+     */
+    private suspend fun autoSetup() {
+        if (settings.current().aiAutoSetupDone) return
+        settings.setAiAutoSetupDone()
+        if (installed().isNotEmpty()) return
+        val model = device.recommended(catalog.models)?.takeIf { it.playPack != null } ?: return
+        download(model, allowMobileData = false)
     }
 
     private fun set(model: ModelInfo, state: ModelState) = _states.update { it + (model.id to state) }
@@ -99,7 +139,34 @@ class ModelManager @Inject constructor(
     }
 
     fun download(model: ModelInfo, allowMobileData: Boolean) {
-        if (model.importOnly || jobs[model.id]?.isActive == true) return
+        if (jobs[model.id]?.isActive == true) return
+        val pack = model.playPack
+        if (pack != null) {
+            jobs[model.id] = scope.launch {
+                set(model, ModelState.Downloading(0, model.sizeBytes))
+                try {
+                    play.fetch(pack)?.let { onPlayUpdate(model, PlayModelDelivery.toModelState(it)) }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    val reason = PlayModelDelivery.failReason(e)
+                    Log.w(TAG, "Play could not deliver ${model.id}: $e")
+                    if (reason == FailReason.PLAY_UNAVAILABLE && model.directDownload) {
+                        set(model, ModelState.NotInstalled())
+                        jobs.remove(model.id)
+                        downloadDirect(model, allowMobileData)
+                    } else {
+                        set(model, ModelState.Failed(reason))
+                    }
+                }
+            }
+            return
+        }
+        downloadDirect(model, allowMobileData)
+    }
+
+    private fun downloadDirect(model: ModelInfo, allowMobileData: Boolean) {
+        if (!model.directDownload) return
         checkBeforeDownload(model, allowMobileData)?.let { set(model, ModelState.Failed(it, partFor(model).length())); return }
         jobs[model.id] = scope.launch(Dispatchers.IO) {
             try {
@@ -122,12 +189,17 @@ class ModelManager @Inject constructor(
     /** Stops a download; what was downloaded is kept so it can continue later. */
     fun pause(model: ModelInfo) {
         jobs.remove(model.id)?.cancel()
+        model.playPack?.let { play.cancel(it); set(model, ModelState.NotInstalled()) }
     }
+
+    /** For a Play download that is waiting for Wi-Fi or for the user's OK: shows Play's own dialog. */
+    fun askPlayToContinue(launcher: ActivityResultLauncher<IntentSenderRequest>) = play.askToContinue(launcher)
 
     suspend fun delete(model: ModelInfo) {
         pause(model)
+        if (play.file(model) != null) runCatching { play.remove(model.playPack!!) }
         withContext(Dispatchers.IO) {
-            fileFor(model).delete()
+            localFileFor(model).delete()
             partFor(model).delete()
         }
         if (settings.current().activeModelId == model.id) settings.setActiveModel(installed().firstOrNull()?.id)
@@ -189,7 +261,7 @@ class ModelManager @Inject constructor(
             part.delete()
             throw ChecksumException()
         }
-        if (!part.renameTo(fileFor(model))) throw IOException("Could not store model")
+        if (!part.renameTo(localFileFor(model))) throw IOException("Could not store model")
     }
 
     /**
@@ -207,7 +279,7 @@ class ModelManager @Inject constructor(
             val model = catalog.models.firstOrNull { it.sha256 == sha }
                 ?: guessByName(name)
                 ?: return@withContext Result.failure(UnknownModelException())
-            temp.renameTo(fileFor(model)).let { if (!it) throw IOException("Could not store model") }
+            temp.renameTo(localFileFor(model)).let { if (!it) throw IOException("Could not store model") }
             if (settings.current().activeModelId == null) settings.setActiveModel(model.id)
             set(model, ModelState.Installed)
             Result.success(model)
